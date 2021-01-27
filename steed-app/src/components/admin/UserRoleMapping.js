@@ -4,11 +4,11 @@ export class UserRoleMapping extends Component {
     render() {
         return (
             <div>
-                <section className="content-header">
+                {/* <section className="content-header">
                     <div className="container-fluid">
                         <div className="row mb-2">
                         <div className="col-sm-6">
-                            <h1>User Role Mapping</h1>
+                            <h3>User Role Mapping</h3>
                         </div>
                         <div className="col-sm-6">
                             <ol className="breadcrumb float-sm-right">
@@ -18,7 +18,7 @@ export class UserRoleMapping extends Component {
                         </div>
                         </div>
                     </div>
-                </section>
+                </section> */}
                 <section className="content">
                     <div className="container-fluid">
                    {/* /.row */}

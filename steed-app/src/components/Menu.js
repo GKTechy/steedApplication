@@ -35,11 +35,11 @@ export class Menu extends Component {
                                             </ul> */}
                                         </li>
                                         <li className="nav-item">
-                                            <a href="#" className="nav-link"><i className="far fa-edit nav-icon" /><p>Transaction <i class="right fas fa-angle-left"></i></p></a>
-                                            <ul className="nav nav-treeview">
-                                                <li className="nav-item"><Link to="/userrolemapping"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Employee User Mapping</p></a></Link></li>
-                                                <li className="nav-item"><Link to="/roles"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Roles Menu Mapping</p></a></Link></li>
-                                            </ul>
+                                        <Link to="/adminTransaction"> <a href="#" className="nav-link"><i className="far fa-edit nav-icon" /><p>Transaction <i class="right fas fa-angle-left"></i></p></a></Link>
+                                            {/* <ul className="nav nav-treeview">
+                                                 <li className="nav-item"><Link to="/userrolemapping"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Employee User Mapping</p></a></Link></li>
+                                                <li className="nav-item"><Link to="/roles"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Roles Menu Mapping</p></a></Link></li> 
+                                            </ul> */}
                                         </li>
                                     </ul>
                             </li>

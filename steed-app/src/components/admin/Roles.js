@@ -4,7 +4,7 @@ export class Roles extends Component {
     render() {
         return (
             <div>
-                <section className="content-header">
+                {/* <section className="content-header">
                     <div className="container-fluid">
                         <div className="row mb-2">
                         <div className="col-sm-6">
@@ -18,7 +18,7 @@ export class Roles extends Component {
                         </div>
                         </div>
                     </div>
-                </section>
+                </section> */}
                 <section className="content">
                     <div className="container-fluid">
                    {/* /.row */}
@@ -48,8 +48,8 @@ export class Roles extends Component {
                                     </div>
                                 </div>
                             </div>
-                            {/* /.card-header */}
-                            <div className="card-body" style={{height: 300}}>
+                         
+                            <div className="card-body" style={{height: 500}}>
                                 <table className="table table-bordered">
                                 <thead>
                                     <tr>

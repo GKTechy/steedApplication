@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 export class NoteForApproval extends Component {
     render() {
         return (
             <div>
-                <section className="content-header">
+                {/* <section className="content-header">
                     <div className="container-fluid">
                         <div className="row mb-2">
                         <div className="col-sm-6">
@@ -18,43 +20,43 @@ export class NoteForApproval extends Component {
                         </div>
                         </div>
                     </div>
-                </section>
+                </section> */}
                 <section className="content">
                     <div className="container-fluid">
                
                         <div className="row">
                         <div className="col-12">
                             <div className="card">
-                            <div className="card-header">
-                                <div className="card-title">
-                                 
-                                <div className="input-group input-group-sm">
-                                            {/* <input type="text" className="form-control" placeholder="Enter Role..." /> */}
-                                            <span className="input-group-append">
-                                                <button type="button" className="btn btn-primary btn-flat" data-toggle="modal" data-target="#note-model">Create New Note &nbsp;&nbsp;<i class="fas fa-plus"></i></button>
-                                            </span>
-                                        </div>
-                                </div>
-                                <div className="card-tools">
-                                    <div className="input-group input-group-sm" style={{width: 350}}>
+                                <div className="card-header">
+                                    <div className="card-title">
+                                    
+                                    <div className="input-group input-group-sm">
+                                                {/* <input type="text" className="form-control" placeholder="Enter Role..." /> */}
+                                                <span className="input-group-append">
+                                                    <button type="button" className="btn btn-primary btn-flat" data-toggle="modal" data-target="#note-model">Create New Note &nbsp;&nbsp;<i class="fas fa-plus"></i></button>
+                                                </span>
+                                            </div>
+                                    </div>
+                                    <div className="card-tools">
+                                        <div className="input-group input-group-sm" style={{width: 350}}>
 
-                                        <input type="text" name="table_search" className="form-control float-right" placeholder="Search" />
-                                        <div className="input-group-append">
-                                        <button type="submit" className="btn btn-default">
-                                            <i className="fas fa-search" />
-                                        </button>
+                                            <input type="text" name="table_search" className="form-control float-right" placeholder="Search" />
+                                            <div className="input-group-append">
+                                            <button type="submit" className="btn btn-default">
+                                                <i className="fas fa-search" />
+                                            </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             
                             <div className="card-body" >
                                 <table className="table table-bordered">
                                 <thead>
                                     <tr>
                                         <th>#ID</th>
-                                        <th style={{"width":"5%"}}>Doc No</th>
-                                        <th style={{"width":"7%"}}>Note Date</th>
+                                        <th style={{"width":"6%"}}>Doc No</th>
+                                        <th style={{"width":"10%"}}>Note Date</th>
                                         <th>Subject</th>
                                         <th style={{"width":"15%"}}>Action</th>
                                     </tr>
@@ -64,7 +66,7 @@ export class NoteForApproval extends Component {
                                         <td>1</td>
                                         <td>123456</td>
                                         <td>10-10-2021</td>
-                                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</td>
+                                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</td>
                                         <td className="project-actions ">
                                             <a className="btn btn-info btn-sm" href="#"><i className="fas fa-pencil-alt"></i>Edit</a>&nbsp;&nbsp;
                                             <a className="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#modal-default"><i className="fas fa-trash"></i>Delete</a>
@@ -74,7 +76,7 @@ export class NoteForApproval extends Component {
                                         <td>2</td>
                                         <td>123456</td>
                                         <td>10-10-2021</td>
-                                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</td>
+                                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </td>
                                         <td className="project-actions ">
                                             <a className="btn btn-info btn-sm" href="#"><i className="fas fa-pencil-alt"></i>Edit</a>&nbsp;&nbsp;
                                             <a className="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#modal-default"><i className="fas fa-trash"></i>Delete</a>
@@ -84,7 +86,7 @@ export class NoteForApproval extends Component {
                                         <td>3</td>
                                         <td>123456</td>
                                         <td>10-10-2021</td>
-                                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</td>
+                                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
                                         <td className="project-actions ">
                                             <a className="btn btn-info btn-sm" href="#"><i className="fas fa-pencil-alt"></i>Edit</a>&nbsp;&nbsp;
                                             <a className="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#modal-default"><i className="fas fa-trash"></i>Delete</a>
@@ -130,7 +132,7 @@ export class NoteForApproval extends Component {
                    
                        
                     </div>
-                    </section>
+                </section>
 
                     <div className="modal fade" id="note-model">
                     <div className="modal-dialog modal-xl">
@@ -163,7 +165,24 @@ export class NoteForApproval extends Component {
                                         </div>
                                     </div>
                                     <div className="card-body table-responsive p-0" >
-                                        
+                                        <CKEditor
+                                                editor={ ClassicEditor }
+                                                data="<p>Hello from CKEditor 5!</p>"
+                                                onReady={ editor => {
+                                                    // You can store the "editor" and use when it is needed.
+                                                    console.log( 'Editor is ready to use!', editor );
+                                                } }
+                                                onChange={ ( event, editor ) => {
+                                                    const data = editor.getData();
+                                                    console.log( { event, editor, data } );
+                                                } }
+                                                onBlur={ ( event, editor ) => {
+                                                    console.log( 'Blur.', editor );
+                                                } }
+                                                onFocus={ ( event, editor ) => {
+                                                    console.log( 'Focus.', editor );
+                                                } }
+                                            />
                                     </div>
                                     </div>
                                     

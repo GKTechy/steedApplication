@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import ManageUsers from './ManageUsers'
 import NoteForApproval from './NoteForApproval'
 import Roles from './Roles'
-
-export class Master extends Component {
+export class AdminMaster extends Component {
     render() {
         return (
             <div className="content">
@@ -25,7 +24,7 @@ export class Master extends Component {
                                 </li>
                             </ul>
                             </div>
-                            <div className="card-body">
+                            <div className="card-body" >
                             <div className="tab-content" id="custom-tabs-two-tabContent">
                                 <div className="tab-pane fade show active" id="custom-tabs-two-home" role="tabpanel" aria-labelledby="custom-tabs-two-home-tab">
                                     <ManageUsers/>
@@ -51,4 +50,4 @@ export class Master extends Component {
     }
 }
 
-export default Master
+export default AdminMaster
