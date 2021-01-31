@@ -190,12 +190,13 @@ export class Menu extends Component {
                             </li>
                             <li className="nav-item"><a href="#" className="nav-link"><i className="nav-icon fas fa-cogs" /><p>PED</p></a>
                                     <ul className="nav nav-treeview">
-                                        <li className="nav-item"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Processes</p></a></li>
+                                    <Link to="/PEDMaster"> <a href="#" className="nav-link"><i className="far fa-envelope nav-icon" /><p>Master <i class="right fas fa-angle-left"></i></p></a></Link>
+                                        {/* <li className="nav-item"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Processes</p></a></li>
                                         <li className="nav-item"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>ProcessFlow</p></a></li>
-                                        <li className="nav-item"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Segments(Parts/Accessories)</p></a></li>
+                                       <li className="nav-item"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Segments(Parts/Accessories)</p></a></li> 
                                         <li className="nav-item"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Products</p></a></li>
                                         <li className="nav-item"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Product Segment Map</p></a></li>
-                                        <li className="nav-item"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Bill Of Materials</p></a></li>
+                                        <li className="nav-item"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Bill Of Materials</p></a></li> */}
                                     </ul>
                             </li>
                             <li className="nav-item"><a href="#" className="nav-link"><i className="nav-icon fas fa-tools" /><p>Maintenance</p></a>

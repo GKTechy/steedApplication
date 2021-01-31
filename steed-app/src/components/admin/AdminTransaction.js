@@ -11,7 +11,7 @@ export default class AdminTransaction extends Component {
                     <div className="card card-primary card-tabs">
                         <div className="card-header p-0 pt-1">
                         <ul className="nav nav-tabs" id="custom-tabs-two-tab" role="tablist">
-                            <li className="pt-2 px-3"><h3 className="card-title">Transaction</h3></li>
+                            <li className="pt-2 px-3"><h3 className="card-title">Admin Transaction</h3></li>
                             <li className="nav-item">
                             <a className="nav-link active" id="custom-tabs-two-home-tab" data-toggle="pill" href="#custom-tabs-two-home" role="tab" aria-controls="custom-tabs-two-home" aria-selected="true">Employee User Mapping</a>
                             </li>
