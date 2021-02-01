@@ -22,14 +22,7 @@ export class Bom extends Component {
                                                 <option>Product 5</option>
                                             </select>
                                             &nbsp;&nbsp;&nbsp;&nbsp;
-                                            <label htmlFor="inlineFormEmail" className="m-2">Segment </label>
-                                            <select className="form-control form-control-sm">
-                                                <option>Segment 1</option>
-                                                <option>Segment 2</option>
-                                                <option>Segment 3</option>
-                                                <option>Segment 4</option>
-                                                <option>Segment 5</option>
-                                            </select>
+                                         
                                             <label htmlFor="inlineFormEmail" className="m-2">Copy From </label>
                                             <select className="form-control form-control-sm">
                                                 <option>Process 1</option>

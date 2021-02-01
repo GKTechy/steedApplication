@@ -30,7 +30,7 @@ export class PedProduct extends Component {
 
                                 </div>
                                 <div className="card-tools">
-                                    <div className="input-group input-group-sm" style={{width: 350}}>
+                                    <div className="input-group input-group-sm" style={{width: 200}}>
                                     
                                         <input type="text" name="table_search" className="form-control float-right" placeholder="Search" />
                                         <div className="input-group-append">
