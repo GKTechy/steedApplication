@@ -9,6 +9,7 @@ import PEDMaster from './ped/PEDMaster';
 import ProductionMaster from './production/ProductionMaster';
 import productionTransaction from './production/productionTransaction';
 import ProductionReport from './production/ProductionReport';
+import CommercialAdmin from './commercial/CommercialAdmin';
 export class Content extends Component {
     render() {
         return (
@@ -20,6 +21,8 @@ export class Content extends Component {
                 <Route exact path="/productionTransaction" component={productionTransaction} />
                 <Route exact path="/productionReport" component={ProductionReport} />
 
+
+                <Route exact path="/commercialMaster" component={CommercialAdmin} />
 
                 <Route exact path="/PEDMaster" component={PEDMaster} />
                 

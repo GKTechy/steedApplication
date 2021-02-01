@@ -85,24 +85,27 @@ export class Menu extends Component {
                             <li className="nav-item"><a href="#" className="nav-link"><i className="nav-icon fas fa-chart-pie" /><p>Commercial</p></a>
                                 <ul className="nav nav-treeview">
                                         <li className="nav-item">
-                                            <a href="#" className="nav-link"><i className="far fa-envelope nav-icon" /><p>Master <i class="right fas fa-angle-left"></i></p></a>
-                                            <ul className="nav nav-treeview">
-                                                <li className="nav-item"><Link to="/manageusers"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Customer</p></a></Link></li>
-                                                <li className="nav-item"><Link to="/roles"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Customer PO</p></a></Link></li>
+                                            <Link to="/commercialMaster"> <a href="#" className="nav-link"><i className="far fa-envelope nav-icon" /><p>Master <i class="right fas fa-angle-left"></i></p></a></Link>
+                                            {/* <ul className="nav nav-treeview">
+                                                <li className="nav-item"><Link to="/manageusers"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Dealer</p></a></Link></li>
+                                                <li className="nav-item"><Link to="/roles"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Dealer Order</p></a></Link></li>
                                                 <li className="nav-item"><Link to="/roles"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Colour Code</p></a></Link></li>
-                                            </ul>
+                                                
+                                            </ul> */}
                                         </li>
                                         <li className="nav-item">
                                             <a href="#" className="nav-link"><i className="far fa-edit nav-icon" /><p>Transaction <i class="right fas fa-angle-left"></i></p></a>
                                             <ul className="nav nav-treeview">
+                                                <li className="nav-item"><Link to="/manageusers"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Production Indent</p></a></Link></li>
                                                 <li className="nav-item"><Link to="/manageusers"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Execution Order Register</p></a></Link></li>
+                                                
                                             </ul>
                                         </li>
                                         <li className="nav-item">
                                             <a href="#" className="nav-link"><i className="far fa-file nav-icon" /><p>Reports <i class="right fas fa-angle-left"></i></p></a>
                                             <ul className="nav nav-treeview">
-                                                <li className="nav-item"><Link to="/manageusers"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Customer</p></a></Link></li>
-                                                <li className="nav-item"><Link to="/manageusers"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Customer PO</p></a></Link></li>
+                                                <li className="nav-item"><Link to="/manageusers"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Dealer</p></a></Link></li>
+                                                <li className="nav-item"><Link to="/manageusers"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Dealer Order</p></a></Link></li>
                                                 <li className="nav-item"><Link to="/manageusers"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>EO Register</p></a></Link></li>
                                             </ul>
                                         </li>
