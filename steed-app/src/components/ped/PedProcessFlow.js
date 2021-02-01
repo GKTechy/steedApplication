@@ -1,93 +1,103 @@
 import React, { Component } from 'react'
 
-export class PedProduct extends Component {
+export class PedProcessFlow extends Component {
     render() {
         return (
             <div>
-                    <section className="content">
+                  <section className="content">
             <div className="container-fluid">
-                   {/* /.row */}
+                   
                         <div className="row">
                         <div className="col-12">
                             <div className="card">
                             <div className="card-header">
                                 <div className="card-title">
-                                        <div className="form-inline">
-                                            <label htmlFor="inlineFormEmail" className="m-2">Name <span class="text-danger">*</span></label>
+                                         <div className="form-inline">
+                                             <label htmlFor="inlineFormEmail" className="m-2">Product </label>
+                                            <select className="form-control form-control-sm">
+                                                <option>Product 1</option>
+                                                <option>Product 2</option>
+                                                <option>Product 3</option>
+                                                <option>Product 4</option>
+                                                <option>Product 5</option>
+                                            </select>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <label htmlFor="inlineFormEmail" className="m-2">Segment </label>
+                                            <select className="form-control form-control-sm">
+                                                <option>Segment 1</option>
+                                                <option>Segment 2</option>
+                                                <option>Segment 3</option>
+                                                <option>Segment 4</option>
+                                                <option>Segment 5</option>
+                                            </select>
+                                            <label htmlFor="inlineFormEmail" className="m-2">Operation No <span class="text-danger">*</span></label>
                                             <input type="email" className="form-control m-2 form-control-sm" id="inlineFormEmail" />
-                                            
-                                            <label htmlFor="inlineFormEmail" className="m-2">Short Name <span class="text-danger">*</span></label>
+                                            <label htmlFor="inlineFormEmail" className="m-2">Process Name </label>
+                                            <select className="form-control form-control-sm">
+                                                <option>Process 1</option>
+                                                <option>Process 2</option>
+                                                <option>Process 3</option>
+                                                <option>Process 4</option>
+                                                <option>Process 5</option>
+                                            </select>
+                                            <label htmlFor="inlineFormEmail" className="m-2">Cycle Time <span class="text-danger">*</span></label>
                                             <input type="email" className="form-control m-2 form-control-sm" id="inlineFormEmail" />
-                                            <label htmlFor="inlineFormEmail" className="m-2">Code <span class="text-danger">*</span></label>
-                                            <input type="email" className="form-control m-2 form-control-sm" id="inlineFormEmail" />
-                                            <label htmlFor="inlineFormEmail" className="m-2">is Active<span class="text-danger">*</span></label>
-                                            <input className="form-check-input" type="checkbox"/>
-                                            
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <button type="button" className="btn btn-primary btn-sm m-2">Save</button>
-                                            <button type="button" className="btn btn-warning btn-sm m-2">Reset</button>
+                                            <button type="button" className="btn btn-primary btn-flat btn-sm">Add &nbsp;&nbsp;<i class="fas fa-plus"></i></button>
                                         </div>
 
                                 </div>
                                 <div className="card-tools">
-                                    <div className="input-group input-group-sm" style={{width: 350}}>
-                                    
-                                        <input type="text" name="table_search" className="form-control float-right" placeholder="Search" />
-                                        <div className="input-group-append">
-                                        <button type="submit" className="btn btn-default">
-                                            <i className="fas fa-search" />
-                                        </button>
-                                        </div>
-                                    </div>
+                                   
                                 </div>
                             </div>
-                            {/* /.card-header */}
+                            
                             <div className="card-body" style={{height: 500}}>
                                 <table className="table table-bordered table-hover text-nowrap">
                                 <thead>
                                     <tr>
                                     <th>#ID</th>
-                                    <th>Name</th>
-                                    <th>Short Name</th>
-                                    <th>Code</th>
-                                    <th>Status</th>
+                                    <th>Operation No</th>
+                                    <th>Process Name</th>
+                                    <th>Cycle Time</th>
                                     <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>Product 1</td>
-                                        <td>PED1</td>
-                                        <td>P1</td>
-                                        <td><span className="badge badge-success">Active</span></td>
+                                        <td>10</td>
+                                        <td>Raw Material Cutting</td>
+                                        <td>30</td>
                                         <td className="project-actions ">
                                             <a className="btn btn-info btn-sm" href="#" data-toggle="modal" data-target="#user-model"><i className="fas fa-pencil-alt"></i>Edit</a>&nbsp;&nbsp;
                                             <a className="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#modal-deleteUser"><i className="fas fa-trash"></i>Delete</a>&nbsp;&nbsp;
                                         </td>
+                                        
                                     </tr>
                                     <tr>
                                         <td>2</td>
-                                        <td>Product 2</td>
-                                        <td>PED2</td>
-                                        <td>P2</td>
-                                        <td><span className="badge badge-success">Active</span></td>
+                                        <td>20</td>
+                                        <td>CENTERING</td>
+                                        <td>30</td>
                                         <td className="project-actions ">
                                             <a className="btn btn-info btn-sm" href="#" data-toggle="modal" data-target="#user-model"><i className="fas fa-pencil-alt"></i>Edit</a>&nbsp;&nbsp;
                                             <a className="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#modal-deleteUser"><i className="fas fa-trash"></i>Delete</a>&nbsp;&nbsp;
                                         </td>
+                                        
                                     </tr>
                                     <tr>
                                         <td>3</td>
-                                        <td>Product 3</td>
-                                        <td>PED33</td>
-                                        <td>P3</td>
-                                        <td><span className="badge badge-success">Active</span></td>
+                                        <td>30</td>
+                                        <td>DEEP HOLE DRILLING</td>
+                                        <td>30</td>
                                         <td className="project-actions ">
                                             <a className="btn btn-info btn-sm" href="#" data-toggle="modal" data-target="#user-model"><i className="fas fa-pencil-alt"></i>Edit</a>&nbsp;&nbsp;
                                             <a className="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#modal-deleteUser"><i className="fas fa-trash"></i>Delete</a>&nbsp;&nbsp;
                                         </td>
+                                        
                                     </tr>
+
+                                   
                                    
                                 </tbody>
                                 </table>
@@ -114,4 +124,4 @@ export class PedProduct extends Component {
     }
 }
 
-export default PedProduct
+export default PedProcessFlow

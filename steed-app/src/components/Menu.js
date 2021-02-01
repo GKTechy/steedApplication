@@ -27,7 +27,7 @@ export class Menu extends Component {
                             <li className="nav-item"><a href="#" className="nav-link"><i className="nav-icon fas fa-users-cog"/><p>Admin </p></a>
                                     <ul className="nav nav-treeview">
                                         <li className="nav-item">
-                                        <Link to="/adminMaster"> <a href="#" className="nav-link"><i className="far fa-envelope nav-icon" /><p>Master <i class="right fas fa-angle-left"></i></p></a></Link>
+                                            <Link to="/adminMaster"> <a href="#" className="nav-link"><i className="far fa-envelope nav-icon" /><p>Master <i class="right fas fa-angle-left"></i></p></a></Link>
                                             {/* <ul className="nav nav-treeview">
                                                 <li className="nav-item"><Link to="/manageusers"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Manage Users</p></a></Link></li>
                                                 <li className="nav-item"><Link to="/roles"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Roles</p></a></Link></li>
@@ -35,7 +35,7 @@ export class Menu extends Component {
                                             </ul> */}
                                         </li>
                                         <li className="nav-item">
-                                        <Link to="/adminTransaction"> <a href="#" className="nav-link"><i className="far fa-edit nav-icon" /><p>Transaction <i class="right fas fa-angle-left"></i></p></a></Link>
+                                            <Link to="/adminTransaction"> <a href="#" className="nav-link"><i className="far fa-edit nav-icon" /><p>Transaction <i class="right fas fa-angle-left"></i></p></a></Link>
                                             {/* <ul className="nav nav-treeview">
                                                  <li className="nav-item"><Link to="/userrolemapping"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Employee User Mapping</p></a></Link></li>
                                                 <li className="nav-item"><Link to="/roles"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Roles Menu Mapping</p></a></Link></li> 
@@ -49,24 +49,26 @@ export class Menu extends Component {
                             <li className="nav-item"><a href="#" className="nav-link"><i className="nav-icon fas fa-industry" /><p>Production</p></a>
                                 <ul className="nav nav-treeview">
                                         <li className="nav-item">
-                                            <a href="#" className="nav-link"><i className="far fa-envelope nav-icon" /><p>Master <i class="right fas fa-angle-left"></i></p></a>
-                                            <ul className="nav nav-treeview">
+                                        <Link to="/productionMaster"> <a href="#" className="nav-link"><i className="far fa-envelope nav-icon" /><p>Master <i class="right fas fa-angle-left"></i></p></a></Link>
+                                            {/* <ul className="nav nav-treeview">
                                                 <li className="nav-item"><Link to="/manageusers"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Machine Process Map</p></a></Link></li>
                                                 <li className="nav-item"><Link to="/roles"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Machine</p></a></Link></li>
-                                            </ul>
+                                            </ul> */}
                                         </li>
                                         <li className="nav-item">
-                                            <a href="#" className="nav-link"><i className="far fa-edit nav-icon" /><p>Transaction <i class="right fas fa-angle-left"></i></p></a>
+                                            <Link to="/productionTransaction"> <a href="#" className="nav-link"><i className="far fa-edit nav-icon" /><p>Transaction <i class="right fas fa-angle-left"></i></p></a></Link>
+                                            {/* <a href="#" className="nav-link"><i className="far fa-edit nav-icon" /><p>Transaction <i class="right fas fa-angle-left"></i></p></a>
                                             <ul className="nav nav-treeview">
                                                 <li className="nav-item"><Link to="/manageusers"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Material Issue Voucher (MIV General)</p></a></Link></li>
                                                 <li className="nav-item"><Link to="/roles"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Material Issue Voucher (MIV EO)</p></a></Link></li>
                                                 <li className="nav-item"><Link to="/roles"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Daily Shift Output Data</p></a></Link></li>
                                                 <li className="nav-item"><Link to="/roles"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Inspection Requisition Slip</p></a></Link></li>
                                                 <li className="nav-item"><Link to="/roles"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>CS HeatCode Entry</p></a></Link></li>
-                                            </ul>
+                                            </ul> */}
                                         </li>
                                         <li className="nav-item">
-                                            <a href="#" className="nav-link"><i className="far fa-file nav-icon" /><p>Reports <i class="right fas fa-angle-left"></i></p></a>
+                                            <Link to="/productionTransaction"> <a href="#" className="nav-link"><i className="far fa-file nav-icon" /><p>Reports <i class="right fas fa-angle-left"></i></p></a></Link>
+                                            {/* <a href="#" className="nav-link"><i className="far fa-file nav-icon" /><p>Reports <i class="right fas fa-angle-left"></i></p></a>
                                             <ul className="nav nav-treeview">
                                                 <li className="nav-item"><Link to="/manageusers"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Production Dashboard</p></a></Link></li>
                                                 <li className="nav-item"><Link to="/roles"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Machine Utilization</p></a></Link></li>
@@ -76,7 +78,7 @@ export class Menu extends Component {
                                                 <li className="nav-item"><Link to="/roles"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Traceability</p></a></Link></li>
                                                 <li className="nav-item"><Link to="/roles"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>DashBoard</p></a></Link></li>
                                                 <li className="nav-item"><Link to="/roles"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>CS Pending Process</p></a></Link></li>
-                                            </ul>
+                                            </ul> */}
                                         </li>
                                 </ul>
                             </li>
@@ -108,9 +110,9 @@ export class Menu extends Component {
                             </li>
                             <li className="nav-item"><a href="#" className="nav-link"><i className="nav-icon fas fa-balance-scale" /><p>Accounts</p></a>
                                     <ul className="nav nav-treeview">
-                                        <li className="nav-item"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>ChartJS</p></a></li>
-                                        <li className="nav-item"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>ChartJS</p></a></li>
-                                        <li className="nav-item"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>ChartJS</p></a></li>
+                                        <li className="nav-item"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Accounts 1</p></a></li>
+                                        <li className="nav-item"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Accounts 2</p></a></li>
+                                        <li className="nav-item"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Accounts 3</p></a></li>
                                     </ul>
                             </li>
                             <li className="nav-item"><a href="#" className="nav-link"><i className="nav-icon fas fa-search-dollar" /><p>Quality</p></a>
@@ -188,9 +190,12 @@ export class Menu extends Component {
                                         </li>
                                 </ul>
                             </li>
-                            <li className="nav-item"><a href="#" className="nav-link"><i className="nav-icon fas fa-cogs" /><p>PED</p></a>
+                            <li className="nav-item"><a href="#" className="nav-link"><i className="nav-icon fas fa-cogs" /><p>PED </p></a>
                                     <ul className="nav nav-treeview">
-                                    <Link to="/PEDMaster"> <a href="#" className="nav-link"><i className="far fa-envelope nav-icon" /><p>Master <i class="right fas fa-angle-left"></i></p></a></Link>
+                                    <li className="nav-item">
+                                        <Link to="/PEDMaster"> <a href="#" className="nav-link"><i className="far fa-envelope nav-icon" /><p>Master </p></a></Link>
+                                    </li>
+                                      
                                         {/* <li className="nav-item"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Processes</p></a></li>
                                         <li className="nav-item"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>ProcessFlow</p></a></li>
                                        <li className="nav-item"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Segments(Parts/Accessories)</p></a></li> 
@@ -199,6 +204,9 @@ export class Menu extends Component {
                                         <li className="nav-item"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>Bill Of Materials</p></a></li> */}
                                     </ul>
                             </li>
+
+                        
+
                             <li className="nav-item"><a href="#" className="nav-link"><i className="nav-icon fas fa-tools" /><p>Maintenance</p></a>
                                     <ul className="nav nav-treeview">
                                         <li className="nav-item"><a href="#" className="nav-link"><i className="far fa-circle nav-icon" /><p>ChartJS</p></a></li>

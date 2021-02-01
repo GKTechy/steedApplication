@@ -6,12 +6,20 @@ import Login from './Login'
 import AdminMaster from './admin/AdminMaster';
 import AdminTransaction from './admin/AdminTransaction';
 import PEDMaster from './ped/PEDMaster';
+import ProductionMaster from './production/ProductionMaster';
+import productionTransaction from './production/productionTransaction';
+import ProductionReport from './production/ProductionReport';
 export class Content extends Component {
     render() {
         return (
             <div className="content-wrapper">
                 <Route exact path="/adminMaster" component={AdminMaster} />
                 <Route exact path="/adminTransaction" component={AdminTransaction} />
+
+                <Route exact path="/productionMaster" component={ProductionMaster} />
+                <Route exact path="/productionTransaction" component={productionTransaction} />
+                <Route exact path="/productionReport" component={ProductionReport} />
+
 
                 <Route exact path="/PEDMaster" component={PEDMaster} />
                 
