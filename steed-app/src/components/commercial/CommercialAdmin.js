@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import ColorCode from './ColorCode'
+import Dealer from './Dealer'
 
 export class CommercialAdmin extends Component {
     render() {
@@ -18,25 +20,25 @@ export class CommercialAdmin extends Component {
                             <a className="nav-link" id="custom-tabs-two-profile-tab" data-toggle="pill" href="#custom-tabs-two-profile" role="tab" aria-controls="custom-tabs-two-profile" aria-selected="false">Dealer Order</a>
                             </li>
                             <li className="nav-item">
-                            <a className="nav-link" id="custom-tabs-two-messages-tab" data-toggle="pill" href="#custom-tabs-two-messages" role="tab" aria-controls="custom-tabs-two-messages" aria-selected="false">Colour Code</a>
+                            <a className="nav-link" id="custom-tabs-two-messages-tab" data-toggle="pill" href="#custom-tabs-two-messages" role="tab" aria-controls="custom-tabs-two-messages" aria-selected="false">Color Code</a>
                             </li>
                         </ul>
                         </div>
                         <div className="card-body" >
                         <div className="tab-content" id="custom-tabs-two-tabContent">
                             <div className="tab-pane fade show active" id="custom-tabs-two-home" role="tabpanel" aria-labelledby="custom-tabs-two-home-tab">
-                               
+                               <Dealer/>
                             </div>
                             <div className="tab-pane fade" id="custom-tabs-two-profile" role="tabpanel" aria-labelledby="custom-tabs-two-profile-tab">
                                 
                             </div>
                             <div className="tab-pane fade" id="custom-tabs-two-messages" role="tabpanel" aria-labelledby="custom-tabs-two-messages-tab">
-                               
+                                <ColorCode/>
                             </div>
                
                         </div>
                         </div>
-                        {/* /.card */}
+                        
                     </div>
                     </div>
 

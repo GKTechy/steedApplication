@@ -23,6 +23,7 @@ export class Content extends Component {
 
 
                 <Route exact path="/commercialMaster" component={CommercialAdmin} />
+                <Route exact path="/addDealer" component={AdminMaster} />
 
                 <Route exact path="/PEDMaster" component={PEDMaster} />
                 

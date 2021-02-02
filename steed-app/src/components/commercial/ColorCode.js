@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export class PedProcess extends Component {
+export class ColorCode extends Component {
     render() {
         return (
             <div>
-                <section className="content">
+                    <section className="content">
                         <div className="container-fluid">
                    
                         <div className="row">
@@ -13,11 +13,11 @@ export class PedProcess extends Component {
                             <div className="card-header">
                                 <div className="card-title">
                                         <div className="form-inline">
-                                            <label htmlFor="inlineFormEmail" className="m-2">Name <span class="text-danger">*</span></label>
-                                            <input type="email" className="form-control m-2 form-control-sm" id="inlineFormEmail" />
+                                            <label htmlFor="inlineFormEmail" className="m-2">Order Code <span class="text-danger">*</span></label>
+                                                <input type="email" className="form-control m-2 form-control-sm" id="inlineFormEmail" />
                                            
-                                            <label htmlFor="inlineFormEmail" className="m-2">is Active<span class="text-danger">*</span></label>
-                                            <input className="form-check-input" type="checkbox"/>
+                                            <label htmlFor="inlineFormEmail" className="m-2">Color Code<span class="text-danger">*</span></label>
+                                             <input type="email" className="form-control m-2 form-control-sm" id="inlineFormEmail" />
                                             
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             <button type="button" className="btn btn-primary btn-sm m-2">Save</button>
@@ -42,16 +42,16 @@ export class PedProcess extends Component {
                                 <thead>
                                     <tr>
                                     <th>#ID</th>
-                                    <th>Name</th>
-                                    <th>Status</th>
+                                    <th>Order Code </th>
+                                    <th>Color Code</th>
                                     <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>AFTER CAM GRINDING</td>
-                                       <td><span className="badge badge-success">Active</span></td>
+                                        <td>SS-48-ST-RD-TB</td>
+                                       <td>RED WITHBLACK - MAT</td>
                                         <td className="project-actions ">
                                             <a className="btn btn-info btn-sm" href="#" data-toggle="modal" data-target="#user-model"><i className="fas fa-pencil-alt"></i>Edit</a>&nbsp;&nbsp;
                                             <a className="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#modal-deleteUser"><i className="fas fa-trash"></i>Delete</a>&nbsp;&nbsp;
@@ -59,22 +59,14 @@ export class PedProcess extends Component {
                                     </tr>
                                     <tr>
                                         <td>2</td>
-                                        <td>AFTER HD MPJ</td>
-                                        <td><span className="badge badge-success">Active</span></td>
+                                        <td>SS-48-ST-WH-LB</td>
+                                        <td>WHITE WITH BLACK - GLOSSY</td>
                                         <td className="project-actions ">
                                             <a className="btn btn-info btn-sm" href="#" data-toggle="modal" data-target="#user-model"><i className="fas fa-pencil-alt"></i>Edit</a>&nbsp;&nbsp;
                                             <a className="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#modal-deleteUser"><i className="fas fa-trash"></i>Delete</a>&nbsp;&nbsp;
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>AFTER TEMPERING</td>
-                                        <td><span className="badge badge-success">Active</span></td>
-                                        <td className="project-actions ">
-                                            <a className="btn btn-info btn-sm" href="#" data-toggle="modal" data-target="#user-model"><i className="fas fa-pencil-alt"></i>Edit</a>&nbsp;&nbsp;
-                                            <a className="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#modal-deleteUser"><i className="fas fa-trash"></i>Delete</a>&nbsp;&nbsp;
-                                        </td>
-                                    </tr>
+                              
                                    
                                 </tbody>
                                 </table>
@@ -101,4 +93,4 @@ export class PedProcess extends Component {
     }
 }
 
-export default PedProcess
+export default ColorCode
