@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/GKTechy/steedApplication/tree/main/steed-app/static/css/main.2ae47eeb.chunk.css",
+    "main.js": "/GKTechy/steedApplication/tree/main/steed-app/static/js/main.e8193d8a.chunk.js",
+    "main.js.map": "/GKTechy/steedApplication/tree/main/steed-app/static/js/main.e8193d8a.chunk.js.map",
+    "runtime-main.js": "/GKTechy/steedApplication/tree/main/steed-app/static/js/runtime-main.fb255406.js",
+    "runtime-main.js.map": "/GKTechy/steedApplication/tree/main/steed-app/static/js/runtime-main.fb255406.js.map",
+    "static/js/2.eb2ccd8c.chunk.js": "/GKTechy/steedApplication/tree/main/steed-app/static/js/2.eb2ccd8c.chunk.js",
+    "static/js/2.eb2ccd8c.chunk.js.map": "/GKTechy/steedApplication/tree/main/steed-app/static/js/2.eb2ccd8c.chunk.js.map",
+    "static/js/3.0d078bca.chunk.js": "/GKTechy/steedApplication/tree/main/steed-app/static/js/3.0d078bca.chunk.js",
+    "static/js/3.0d078bca.chunk.js.map": "/GKTechy/steedApplication/tree/main/steed-app/static/js/3.0d078bca.chunk.js.map",
+    "index.html": "/GKTechy/steedApplication/tree/main/steed-app/index.html",
+    "static/css/main.2ae47eeb.chunk.css.map": "/GKTechy/steedApplication/tree/main/steed-app/static/css/main.2ae47eeb.chunk.css.map",
+    "static/js/2.eb2ccd8c.chunk.js.LICENSE.txt": "/GKTechy/steedApplication/tree/main/steed-app/static/js/2.eb2ccd8c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fb255406.js",
+    "static/js/2.eb2ccd8c.chunk.js",
+    "static/css/main.2ae47eeb.chunk.css",
+    "static/js/main.e8193d8a.chunk.js"
+  ]
+}
