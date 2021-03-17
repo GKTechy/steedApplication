@@ -68,7 +68,7 @@ public class UserEntity implements Serializable, Cloneable {
 	@Column(name = "password")
 	@ColumnTransformer(
 //			read = "cast(AES_DECRYPT(password, 'o2web_ng') as char(255))",
-			write = "AES_ENCRYPT(?, 'o2web_ng')"
+			write = "AES_ENCRYPT(?, 'steed_app')"
 			)
 	public String password;
 	
