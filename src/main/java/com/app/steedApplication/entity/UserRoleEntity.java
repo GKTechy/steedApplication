@@ -14,7 +14,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="user_roles")
+@Table(name="roles")
 public class UserRoleEntity {
 	
 	public static final String TYPE = UserRoleAccessEntity.class.getName();
@@ -24,30 +24,24 @@ public class UserRoleEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int roleId;	
 	
-	@Column(name="company_code")
-	private String companyCode;
-	
 	@Column(name="role_name")
 	private String roleName;
+		
+	@Column(name = "status")
+	public String status;
 	
-	@Column(name="create_salesman")
-	private char createSalesman;
+	@Column(name = "created")
+	public Date created;
 	
-	@Column(name="status")
-	private char status;
+	@Column(name = "created_by")
+	public String createdBy;
 	
-	@Column(name="last_updated_dtm")
-	private Date lastUpdatedDtm = null;
+	@Column(name = "updated")
+	public Date updated;
 	
-	@Column(name="last_updated_by")
-	private String lastUpdatedBy = null;	
-	
-	@Transient
-	public String displayCreateSalesman;
-	
-	@Transient
-	public String displayStatus;
-	
+	@Column(name = "updated_by")
+	public String updatedBy;	
+		
 	@Transient
 	public String readOnly;
 	
