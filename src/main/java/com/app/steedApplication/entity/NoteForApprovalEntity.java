@@ -8,18 +8,58 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name="user_roles")
+@Table(name="note_for_approval")
 public class NoteForApprovalEntity {
+	public static final String TYPE = NoteForApprovalEntity.class.getName();
+
 	@Id
-	@Column(name = "user_id")
+	@Column(name = "nfa_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Long userId;
+	private int nfaId;	
 	
-	@Column(name = "user_name")
-	public String userName;
+	@Column(name = "nfa_document_no")
+	public String nfaDocumentNo;
+	
+	@Column(name = "nfa_document_date")
+	public Date nfaDocumentDate;
+	
+	@Column(name = "nfa_title")
+	public String nfaTitle;
+	
+	@Column(name = "nfa_description")
+	public String nfaDescription;
+	
+	@Column(name = "is_active")
+	public Boolean isActive;
+	
+	@Column(name = "prepared_on")
+	public Date preparedON;
+	
+	@Column(name = "prepared_by")
+	public String preparedBy;
+	
+	@Column(name = "approved_on")
+	public Date approvedOn;
+	
+	@Column(name = "approved_by")
+	public Date approvedBy;
+	
+	@Column(name = "updated_on")
+	public String updatedOn;
+	
+	@Column(name = "updated_by")
+	public String updatedBy;	
+		
+	@Transient
+	public String readOnly;
+	
+	@Transient
+	public String changeFlag;
+
 }
