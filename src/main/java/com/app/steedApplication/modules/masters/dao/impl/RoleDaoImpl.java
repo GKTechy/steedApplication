@@ -33,7 +33,7 @@ public class RoleDaoImpl implements RoleDao {
 		try {
 
 			roleList = session.createQuery(" FROM UserRoleEntity r where r.status='Y'").list();
-			System.out.println("roleList------"+roleList.size());
+		//	System.out.println("roleList------"+roleList.size());
 			returnobj.setValid(true);
 			returnobj.setRoleList(roleList);
 		} catch (Exception e) {
@@ -81,7 +81,7 @@ public class RoleDaoImpl implements RoleDao {
 		try {
 
 			roleList = session.createQuery(" FROM UserRoleEntity r where r.status='Y' and roleId="+id).list();
-			System.out.println("userList------"+roleList.size());
+			//System.out.println("userList------"+roleList.size());
 			returnobj.setValid(true);
 			returnobj.setRoleList(roleList);
 		} catch (Exception e) {
