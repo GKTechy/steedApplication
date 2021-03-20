@@ -14,35 +14,46 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="unit_of_measurement")
-public class UOMEntity {
+@Table(name="raw_material")
+public class rawMaterialEntity {
 	@Id
-	@Column(name = "unit_of_measurement_id")
+	@Column(name = "raw_material_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Long unitOfMeasurementId;
+	public Long rawMaterialId;
 	
-	@Column(name = "measurement_name")
-	public String measurementName;
+	@Column(name = "raw_material_name")
+	public String rawMaterialName;
 	
-	@Column(name = "measurement_short_name")
-	public String measurementShortName;
+	@Column(name = "material_code")
+	public String materialCode;
+	
+	@Column(name = "item_type")
+	public String itemType;
+	
+	@Column(name = "remarks")
+	public String remarks;
+	
+	@Column(name = "measurement_type")
+	public String measurementType;
+	
+	@Column(name = "units")
+	public String units;
+	
+	@Column(name = "price")
+	public String price;
+	
+	@Column(name = "reference_level")
+	public String referenceLevel;
+	
+	@Column(name = "supplier_name")
+	public String supplierName;
 	
 	
-	@Column(name = "measurement_type_id")
-	public String measurementTypeId;
+	@Column(name = "hsn_code")
+	public String hsnCode;
 	
-	@Column(name = "base_measurement")
-	public String baseMeasurement;
-	
-	
-	@Column(name = "equivalent_value_with_base")
-	public String equivalentValueWithBase;
-	
-	@Column(name = "description")
-	public String description;
-	
-	@Column(name = "varied_measurement")
-	public String variedMeasurement;
+	@Column(name = "is_bom")
+	public Boolean isBom;
 	
 	@Column(name = "is_active")
 	public Boolean isActive;
@@ -67,6 +78,6 @@ public class UOMEntity {
 	
 	
 	
-	
-	
 }
+
+
