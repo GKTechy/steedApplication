@@ -19,7 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Repository;
 
-import com.app.steedApplication.Configuration.MailConfiguration;
 import com.app.steedApplication.entity.UserEntity;
 import com.app.steedApplication.modules.masters.dao.UserDao;
 import com.app.steedApplication.modules.masters.dao.constant.UserConstant;
@@ -34,8 +33,7 @@ public class UserDaoImpl implements UserDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	@Autowired
-	private MailConfiguration mailConfiguration;
+
 
 	private Logger logger = Logger.getLogger(getClass().getName());
 
@@ -301,7 +299,7 @@ public class UserDaoImpl implements UserDao {
 	@Bean
 	public JavaMailSender getMailSender() {
 		JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-		Properties javaMailProperties = new Properties();
+		/*Properties javaMailProperties = new Properties();
 		List<Map<String,Object>> mailList = null;
 		Session session = this.sessionFactory.openSession();
 		mailList = session.createSQLQuery("select id as id, company_code as companyCode, mail_server as mailServer, mail_server_port as mailServerPort, sender_mail_address as senderMailAddress, CAST(AES_DECRYPT(ea.password,'o2web_mail') as char(50)) as password, cc_mail_address as ccMailAddress, bcc_mail_address as bccMailAddress, status as status from email_account as ea where ea.status = 'Y'")
@@ -323,7 +321,7 @@ public class UserDaoImpl implements UserDao {
 	        javaMailProperties.put("mail.debug", "true");
 	        		 
 	        mailSender.setJavaMailProperties(javaMailProperties);
-		}
+		} */
 		return mailSender;
 	}
 	

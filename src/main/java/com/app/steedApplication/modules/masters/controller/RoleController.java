@@ -21,14 +21,14 @@ import com.app.steedApplication.modules.masters.service.RoleService;
  *
  */
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/role")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class RoleController {
 	
 	@Autowired
 	private RoleService roleService;
 
-	@GetMapping
+	@GetMapping("/allRoles")
 	public ResponseEntity<RoleVO> getAllRoles() {
 		RoleVO robj=roleService.getAllRoles();
 		return new ResponseEntity<RoleVO>(robj,new HttpHeaders(),HttpStatus.OK);
