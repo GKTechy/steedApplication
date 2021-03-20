@@ -15,7 +15,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name="raw_material")
-public class rawMaterialEntity {
+public class RawMaterialEntity {
 	@Id
 	@Column(name = "raw_material_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
