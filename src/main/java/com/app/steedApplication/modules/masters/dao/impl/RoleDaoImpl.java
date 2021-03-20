@@ -1,9 +1,11 @@
 package com.app.steedApplication.modules.masters.dao.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -32,7 +34,7 @@ public class RoleDaoImpl implements RoleDao {
 		List<UserRoleEntity> roleList= new ArrayList<UserRoleEntity>();
 		try {
 
-			roleList = session.createQuery(" FROM UserRoleEntity r where r.status='Y'").list();
+			roleList = session.createQuery(" FROM UserRoleEntity r").list();
 		//	System.out.println("roleList------"+roleList.size());
 			returnobj.setValid(true);
 			returnobj.setRoleList(roleList);
@@ -44,7 +46,8 @@ public class RoleDaoImpl implements RoleDao {
 			if(session != null){
 				session.close();
 				session = null;
-			}			
+			}	
+			roleList=null;
 		}		
 		return returnobj;
 	}
@@ -68,7 +71,7 @@ public class RoleDaoImpl implements RoleDao {
 			if(session != null){
 				session.close();
 				session = null;
-			}			
+			}	
 		}		
 		return returnobj;
 	}
@@ -92,15 +95,65 @@ public class RoleDaoImpl implements RoleDao {
 			if(session != null){
 				session.close();
 				session = null;
-			}			
+			}
+			roleList=null;
 		}		
 		return returnobj;
 	}
 
 	@Override
 	public RoleVO saveRole(RoleVO obj) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = this.sessionFactory.openSession();
+		RoleVO returnobj=new RoleVO();
+		List<UserRoleEntity> roleList= new ArrayList<UserRoleEntity>();
+		Transaction tx=session.beginTransaction();		
+		try {
+			UserRoleEntity roleObj=obj.getRoleObj();
+			if(roleObj.getRoleId() == 0) { // New Row
+				roleList = session.createQuery(" FROM UserRoleEntity AS u WHERE u.roleName = '"+roleObj.getRoleName()+"'").list();
+				System.out.println("IF userList------"+roleList.size());
+				if(roleList.size() == 0) {
+					
+					
+					roleObj.setCreated(new Date());
+					roleObj.setUpdated(new Date());
+					session.save(roleObj);
+					returnobj.setValid(true);
+				} else {
+					returnobj.setValid(false);
+					returnobj.setResponseMsg("Role Name Already Exists");
+				}
+			}else { // update
+				roleList = session.createQuery(" FROM UserRoleEntity AS u WHERE u.roleName = '"+roleObj.getRoleName()+"' AND roleId!="+roleObj.getRoleId()).list();
+				System.out.println("ELSE userList------"+roleList.size());
+				if(roleList.size() == 0) {
+					
+					
+					roleObj.setCreated(new Date());
+					roleObj.setUpdated(new Date());
+					session.saveOrUpdate(roleObj);
+					returnobj.setValid(true);
+				} else {
+					returnobj.setValid(false);
+					returnobj.setResponseMsg("Role Name Already Exists");
+				}
+			}
+			
+			tx.commit();
+		} catch (Exception e) {
+			tx.rollback();
+			e.printStackTrace();
+			returnobj.setValid(false);
+			returnobj.setResponseMsg(e.getMessage());
+			logger.info(e.getMessage());
+		} finally {
+			if(session != null){
+				session.close();
+				session = null;
+			}	
+	
+		}		
+		return returnobj;
 	}
 
 	
