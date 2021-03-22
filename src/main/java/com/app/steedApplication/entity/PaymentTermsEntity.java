@@ -33,7 +33,7 @@ public class PaymentTermsEntity {
 	public String content;
 	
 	@Column(name = "is_active")
-	public Boolean isActive;
+	public String isActive;
 	
 	@Column(name = "created")
 	public Date created;

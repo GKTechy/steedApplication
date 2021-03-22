@@ -12,14 +12,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.app.steedApplication.entity.MaterialTypeEntity;
-import com.app.steedApplication.entity.UserRoleEntity;
-import com.app.steedApplication.modules.masters.dao.MaterialTypeDao;
+import com.app.steedApplication.entity.PaymentTermsEntity;
+import com.app.steedApplication.modules.masters.dao.PaymentTermDao;
 import com.app.steedApplication.modules.masters.model.MaterialTypeVO;
-import com.app.steedApplication.modules.masters.model.RoleVO;
+import com.app.steedApplication.modules.masters.model.PaymentTermVO;
 
 
 @Repository
-public class MaterialTypeDaoImpl implements MaterialTypeDao{
+public class PaymentTermDaoImpl implements PaymentTermDao {
 	
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -27,17 +27,18 @@ public class MaterialTypeDaoImpl implements MaterialTypeDao{
 	private Logger logger = Logger.getLogger(getClass().getName());
 	
 	
+	
 	@Override
-	public MaterialTypeVO getAllMaterialTypes() {
+	public PaymentTermVO getAllPaymentTerms() {
 		Session session = this.sessionFactory.openSession();
-		MaterialTypeVO returnobj=new MaterialTypeVO();
-		List<MaterialTypeEntity> tableList= new ArrayList<MaterialTypeEntity>();
+		PaymentTermVO returnobj=new PaymentTermVO();
+		List<PaymentTermsEntity> tableList= new ArrayList<PaymentTermsEntity>();
 		try {
 
-			tableList = session.createQuery(" FROM MaterialTypeEntity r where r.isActive='Active'").list();
+			tableList = session.createQuery(" FROM PaymentTermsEntity r where r.isActive='Active'").list();
 		//	System.out.println("roleList------"+roleList.size());
 			returnobj.setValid(true);
-			returnobj.setMaterialTypeList(tableList);
+			returnobj.setPaymentTermList(tableList);
 		} catch (Exception e) {
 			e.printStackTrace();
 			returnobj.setValid(false);
@@ -52,28 +53,29 @@ public class MaterialTypeDaoImpl implements MaterialTypeDao{
 	}
 
 	@Override
-	public MaterialTypeVO findMaterialTypebyId(int id) {
+	public PaymentTermVO findPaymentTermbyId(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public MaterialTypeVO deleteMaterialTypebyId(int id) {
+	public PaymentTermVO deletePaymentTermbyId(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public MaterialTypeVO saveMaterialType(MaterialTypeVO obj) {
+	public PaymentTermVO savePaymentTerm(PaymentTermVO obj) {
+
 		Session session = this.sessionFactory.openSession();
-		MaterialTypeVO returnobj=new MaterialTypeVO();
-		List<MaterialTypeEntity> mlist= new ArrayList<MaterialTypeEntity>();
+		PaymentTermVO returnobj=new PaymentTermVO();
+		List<PaymentTermsEntity> mlist= new ArrayList<PaymentTermsEntity>();
 		Transaction tx=session.beginTransaction();		
 		try {
-			MaterialTypeEntity robj=obj.getMaterialTypeObj();
-			if(robj.getMaterialTypeId() == 0) { // New Row
-				mlist = session.createQuery(" FROM MaterialTypeEntity AS u WHERE u.materialTypeName = '"+robj.getMaterialTypeName()+"'").list();
-				//System.out.println("IF userList------"+mlist.size());
+			PaymentTermsEntity robj=obj.getPaymentTermObj();
+			if(robj.getPaymentTermsId() == 0) { // New Row
+				mlist = session.createQuery(" FROM PaymentTermsEntity AS u WHERE u.description = '"+robj.getDescription()+"'").list();
+				System.out.println("IF userList------"+mlist.size());
 				if(mlist.size() == 0) {
 					
 					//System.out.println("active-->"+robj.getIsActive());
@@ -83,11 +85,11 @@ public class MaterialTypeDaoImpl implements MaterialTypeDao{
 					returnobj.setValid(true);
 				} else {
 					returnobj.setValid(false);
-					returnobj.setResponseMsg("Material Type Name Already Exists");
+					returnobj.setResponseMsg("Payment Term Already Exists");
 				}
 			}else { // update
-				mlist = session.createQuery(" FROM MaterialTypeEntity AS u WHERE u.materialTypeName = '"+robj.getMaterialTypeName()+"' AND materialTypeId!="+robj.getMaterialTypeId()).list();
-				//System.out.println("ELSE userList------"+mlist.size());
+				mlist = session.createQuery(" FROM PaymentTermsEntity AS u WHERE u.description = '"+robj.getDescription()+"' AND paymentTermsId!="+robj.getPaymentTermsId()).list();
+				System.out.println("ELSE userList------"+mlist.size());
 				if(mlist.size() == 0) {
 					robj.setCreated(new Date());
 					robj.setUpdated(new Date());
@@ -95,7 +97,7 @@ public class MaterialTypeDaoImpl implements MaterialTypeDao{
 					returnobj.setValid(true);
 				} else {
 					returnobj.setValid(false);
-					returnobj.setResponseMsg("Material Type Name Already Exists");
+					returnobj.setResponseMsg("Payment Term Already Exists");
 				}
 			}
 			

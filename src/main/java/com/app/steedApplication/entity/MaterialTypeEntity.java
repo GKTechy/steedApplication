@@ -31,7 +31,7 @@ public class MaterialTypeEntity {
 	private String materialTypeDescription;
 	
 	@Column(name = "is_active")
-	public Boolean isActive;
+	public String isActive;
 	
 	@Column(name = "created")
 	public Date created;

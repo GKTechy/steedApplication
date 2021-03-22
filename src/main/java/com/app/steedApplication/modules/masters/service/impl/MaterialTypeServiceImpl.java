@@ -57,6 +57,7 @@ public class MaterialTypeServiceImpl implements MaterialTypeService {
 		MaterialTypeVO returnobj = new MaterialTypeVO();
 		try {
 			returnobj= materialTypeDao.saveMaterialType(obj) ;
+			returnobj.setMaterialTypeList(materialTypeDao.getAllMaterialTypes().getMaterialTypeList());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
