@@ -61,6 +61,7 @@ public class RoleServiceImpl implements RoleService {
 		RoleVO returnobj = new RoleVO();
 		try {
 			returnobj= roleDao.saveRole(obj) ;
+			returnobj.setRoleList(roleDao.getAllRoles().getRoleList());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
