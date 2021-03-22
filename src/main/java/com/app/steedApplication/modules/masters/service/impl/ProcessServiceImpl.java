@@ -6,10 +6,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.app.steedApplication.modules.masters.dao.ProcessDao;
 import com.app.steedApplication.modules.masters.model.ProcessVO;
+import com.app.steedApplication.modules.masters.service.ProcessService;
 
 @Service
 @Transactional
-public class ProcessServiceImpl implements ProcessDao{
+public class ProcessServiceImpl implements ProcessService{
 
 
 	@Autowired
