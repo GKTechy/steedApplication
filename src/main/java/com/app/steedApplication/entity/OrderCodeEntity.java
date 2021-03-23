@@ -21,6 +21,9 @@ public class OrderCodeEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long orderCodeId;
 	
+	@Column(name = "order_code")
+	public String orderCode;
+	
 	@Column(name = "color_code")
 	public String colorCode;
 	
@@ -28,7 +31,7 @@ public class OrderCodeEntity {
 	public String isActive;
 	
 	@Column(name = "created")
-	public String created;
+	public Date created;
 	
 	@Column(name = "created_by")
 	public String createdBy;
