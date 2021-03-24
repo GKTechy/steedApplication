@@ -11,7 +11,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="user_roles")
+@Table(name="dealer")
 public class DealerEntity {
 	@Id
 	@Column(name = "user_id")
