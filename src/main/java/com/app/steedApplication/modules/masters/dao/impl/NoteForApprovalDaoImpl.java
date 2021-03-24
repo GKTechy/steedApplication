@@ -95,6 +95,11 @@ public class NoteForApprovalDaoImpl implements NoteForApprovalDao {
 				if(tableList.size() == 0) {
 					robj.setCreated(new Date());
 					robj.setUpdated(new Date());
+					robj.setApprovedBy(100);
+					robj.setApprovedOn(new Date());
+					robj.setPreparedBy("100");
+					robj.setPreparedON(new Date());
+					robj.setNfaActive("Active");
 					session.saveOrUpdate(robj);
 					returnobj.setValid(true);
 				} else {
