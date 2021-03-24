@@ -36,22 +36,31 @@ public class NoteForApprovalEntity {
 	public String nfaDescription;
 	
 	@Column(name = "is_active")
-	public Boolean isActive;
+	public String isActive;
 	
-	@Column(name = "prepared_on")
+	@Column(name = "nfa_active")
+	public String nfaActive;
+	
+	@Column(name = "nfa_prepared_on")
 	public Date preparedON;
 	
-	@Column(name = "prepared_by")
+	@Column(name = "nfa_prepared_by")
 	public String preparedBy;
 	
-	@Column(name = "approved_on")
+	@Column(name = "nfa_approved_on")
 	public Date approvedOn;
 	
-	@Column(name = "approved_by")
-	public Date approvedBy;
+	@Column(name = "nfa_approved_by")
+	public int approvedBy;
 	
-	@Column(name = "updated_on")
-	public String updatedOn;
+	@Column(name = "created")
+	public Date created;
+	
+	@Column(name = "created_by")
+	public String createdBy;
+	
+	@Column(name = "updated")
+	public Date updated;
 	
 	@Column(name = "updated_by")
 	public String updatedBy;	
