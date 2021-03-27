@@ -1,4 +1,4 @@
-package com.app.steedApplication.entity;
+ package com.app.steedApplication.entity;
 
 import java.util.Date;
 
