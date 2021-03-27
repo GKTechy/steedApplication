@@ -64,6 +64,9 @@ public class UOMEntity {
 	
 	@Transient
 	public String changeFlag;
+
+	
+	}
 	
 	
 	

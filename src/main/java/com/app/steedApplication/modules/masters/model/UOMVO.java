@@ -14,5 +14,12 @@ public class UOMVO {
 	public String responseMsg;
 	public List<UOMEntity> uomList;
 	public UOMEntity uomObj;
-	
+	public Object getUOMList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public void setUOMList(Object uomList2) {
+		// TODO Auto-generated method stub
+		
+	}	
 }
