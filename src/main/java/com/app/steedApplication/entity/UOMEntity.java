@@ -66,10 +66,10 @@ public class UOMEntity {
 	public String changeFlag;
 
 	
-	}
-	
-	
-	
-	
-	
 }
+	
+	
+	
+	
+	
+

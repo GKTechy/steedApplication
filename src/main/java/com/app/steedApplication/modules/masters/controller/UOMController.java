@@ -22,11 +22,11 @@ import com.app.steedApplication.modules.masters.service.UOMService;
 public class UOMController {
 	
 	@Autowired
-	private UOMService UOMService;
+	private UOMService uomService;
 
 	@GetMapping("/allUOMs")
 	public ResponseEntity<UOMVO> getAllUOMs() {
-		UOMVO robj=UOMService.getAllUOMs();
+		UOMVO robj=uomService.getAllUOMs();
 		return new ResponseEntity<UOMVO>(robj,new HttpHeaders(),HttpStatus.OK);
 	}
 	
@@ -34,13 +34,13 @@ public class UOMController {
 
 	@GetMapping("/{id}")
 	public ResponseEntity<UOMVO> findUOMbyId(@PathVariable("id") int id) {
-		UOMVO robj=UOMService.findUOMbyId(id);
+		UOMVO robj=uomService.findUOMbyId(id);
 		return new ResponseEntity<UOMVO>(robj,new HttpHeaders(),HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<UOMVO> deleteUOMbyId(@PathVariable("id") int id) {
-		UOMVO robj=UOMService.deleteUOMbyId(id);
+		UOMVO robj=uomService.deleteUOMbyId(id);
 		return new ResponseEntity<UOMVO>(robj,new HttpHeaders(),HttpStatus.OK);
 	}
 	
@@ -49,7 +49,7 @@ public class UOMController {
 	public ResponseEntity<UOMVO> saveUOM(@RequestBody UOMVO obj) {
 		UOMVO robj = new UOMVO();
 		try {
-			robj=UOMService.saveUOM(obj);
+			robj=uomService.saveUOM(obj);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}		

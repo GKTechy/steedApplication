@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.app.steedApplication.entity.UOMEntity;
-import com.app.steedApplication.entity.UserUOMEntity;
 import com.app.steedApplication.modules.masters.dao.UOMDao;
 import com.app.steedApplication.modules.masters.model.UOMVO;
 
@@ -29,13 +28,13 @@ public class UOMDaoImpl implements UOMDao {
 	public UOMVO getAllUOMs() {
 		Session session = this.sessionFactory.openSession();
 		UOMVO returnobj=new UOMVO();
-		List<UOMEntity> UOMList= new ArrayList<UOMEntity>();
+		List<UOMEntity> tableList= new ArrayList<UOMEntity>();
 		try {
 
-			UOMList = session.createQuery(" FROM UOMEntity r").list();
+			tableList = session.createQuery(" FROM UOMEntity r").list();
 		//	System.out.println("UOMList------"+UOMList.size());
 			returnobj.setValid(true);
-			returnobj.setUOMList(UOMList);
+			returnobj.setUomList(tableList);
 		} catch (Exception e) {
 			e.printStackTrace();
 			returnobj.setValid(false);
@@ -45,7 +44,7 @@ public class UOMDaoImpl implements UOMDao {
 				session.close();
 				session = null;
 			}	
-			UOMList=null;
+			tableList=null;
 		}		
 		return returnobj;
 	}
@@ -84,7 +83,7 @@ public class UOMDaoImpl implements UOMDao {
 			UOMList = session.createQuery(" FROM UOMEntity r where r.status='Y' and UOMId="+id).list();
 			//System.out.println("userList------"+UOMList.size());
 			returnobj.setValid(true);
-			returnobj.setUOMList(UOMList);
+			returnobj.setUomList(UOMList);
 		} catch (Exception e) {
 			e.printStackTrace();
 			returnobj.setValid(false);
@@ -103,33 +102,33 @@ public class UOMDaoImpl implements UOMDao {
 	public UOMVO saveUOM(UOMVO obj) {
 		Session session = this.sessionFactory.openSession();
 		UOMVO returnobj=new UOMVO();
-		List<UOMEntity> UOMList= new ArrayList<UOMEntity>();
+		List<UOMEntity> uOMList= new ArrayList<UOMEntity>();
 		Transaction tx=session.beginTransaction();		
 		try {
-			UOMEntity UOMObj=obj.getUOMObj();
-			if(UOMObj.getUOMId() == 0) { // New Row
-				UOMList = session.createQuery(" FROM UOMEntity AS u WHERE u.UOMName = '"+UOMObj.getUOMName()+"'").list();
-				System.out.println("IF userList------"+UOMList.size());
-				if(UOMList.size() == 0) {
+			UOMEntity uomObj=obj.getUomObj();
+			if(uomObj.getUnitOfMeasurementId() == 0) { // New Row
+				uOMList = session.createQuery(" FROM UOMEntity AS u WHERE u.measurementName = '"+uomObj.getMeasurementName()+"'").list();
+				System.out.println("IF userList------"+uOMList.size());
+				if(uOMList.size() == 0) {
 					
 					
-					UOMObj.setCreated(new Date());
-					UOMObj.setUpdated(new Date());
-					session.save(UOMObj);
+					uomObj.setCreated(new Date());
+					uomObj.setUpdated(new Date());
+					session.save(uomObj);
 					returnobj.setValid(true);
 				} else {
 					returnobj.setValid(false);
 					returnobj.setResponseMsg("UOM Name Already Exists");
 				}
 			}else { // update
-				UOMList = session.createQuery(" FROM UOMEntity AS u WHERE u.UOMName = '"+UOMObj.getUOMName()+"' AND UOMId!="+UOMObj.getUOMId()).list();
-				System.out.println("ELSE UOMList------"+UOMList.size());
-				if(UOMList.size() == 0) {
+				uOMList = session.createQuery(" FROM UOMEntity AS u WHERE u.measurementName = '"+uomObj.getMeasurementName()+"' AND unitOfMeasurementId!="+uomObj.getUnitOfMeasurementId()).list();
+				System.out.println("ELSE UOMList------"+uOMList.size());
+				if(uOMList.size() == 0) {
 					
 					
-					UOMObj.setCreated(new Date());
-					UOMObj.setUpdated(new Date());
-					session.saveOrUpdate(UOMObj);
+					uomObj.setCreated(new Date());
+					uomObj.setUpdated(new Date());
+					session.saveOrUpdate(uomObj);
 					returnobj.setValid(true);
 				} else {
 					returnobj.setValid(false);

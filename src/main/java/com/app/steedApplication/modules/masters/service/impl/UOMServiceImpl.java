@@ -13,14 +13,14 @@ import com.app.steedApplication.modules.masters.service.UOMService;
 public class UOMServiceImpl implements UOMService {
 	
 	@Autowired
-	private UOMDao UOMDao;
+	private UOMDao uomDao;
 
 	
 	@Override
 	public UOMVO getAllUOMs() {
 		UOMVO returnobj = new UOMVO();
 		try {
-			returnobj= UOMDao.getAllUOMs();
+			returnobj= uomDao.getAllUOMs();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -32,7 +32,7 @@ public class UOMServiceImpl implements UOMService {
 	public UOMVO findUOMbyId(int id) {
 		UOMVO returnobj = new UOMVO();
 		try {
-			returnobj= UOMDao.findUOMbyId(id);
+			returnobj= uomDao.findUOMbyId(id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -44,7 +44,7 @@ public class UOMServiceImpl implements UOMService {
 	public UOMVO deleteUOMbyId(int id) {
 		UOMVO returnobj = new UOMVO();
 		try {
-			returnobj= UOMDao.deleteUOMbyId(id) ;
+			returnobj= uomDao.deleteUOMbyId(id) ;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -56,8 +56,8 @@ public class UOMServiceImpl implements UOMService {
 	public UOMVO saveUOM(UOMVO obj) {
 		UOMVO returnobj = new UOMVO();
 		try {
-			returnobj= UOMDao.saveUOM(obj) ;
-			returnobj.setUOMList(UOMDao.getAllUOMs().getUOMList());
+			returnobj= uomDao.saveUOM(obj) ;
+			returnobj.setUomList(uomDao.getAllUOMs().getUomList());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

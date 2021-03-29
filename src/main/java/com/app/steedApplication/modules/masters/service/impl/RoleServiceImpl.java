@@ -5,9 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.steedApplication.modules.masters.dao.RoleDao;
-import com.app.steedApplication.modules.masters.dao.UserDao;
 import com.app.steedApplication.modules.masters.model.RoleVO;
-import com.app.steedApplication.modules.masters.model.UserVO;
 import com.app.steedApplication.modules.masters.service.RoleService;
 
 
