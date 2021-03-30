@@ -55,6 +55,21 @@ public class MachineController {
 		}		
 		return new ResponseEntity<MachineVO>(robj,new HttpHeaders(),HttpStatus.OK);
 	}
+		
+	@GetMapping("/allMachinesProcessMapDetails")
+	public ResponseEntity<MachineVO> allMachinesProcessMapDetails() {
+		MachineVO robj=machineService.allMachinesProcessMapDetails();
+		return new ResponseEntity<MachineVO>(robj,new HttpHeaders(),HttpStatus.OK);
+	}
 	
-	
+	@PostMapping("/saveMachinesProcessMapDetails")
+	public ResponseEntity<MachineVO> saveMachinesProcessMapDetails(@RequestBody MachineVO obj) {
+		MachineVO robj = new MachineVO();
+		try {
+			robj=machineService.saveMachinesProcessMapDetails(obj);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
+		return new ResponseEntity<MachineVO>(robj,new HttpHeaders(),HttpStatus.OK);
+	}
 }

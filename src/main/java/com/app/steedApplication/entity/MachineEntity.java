@@ -36,8 +36,8 @@ public class MachineEntity {
 	@Column(name = "commissioning_date")
 	public Date commissioningDate;
 	
-	@Column(name = "dispose_date")
-	public Date disposeDate;
+	@Column(name = "dispote_date")
+	public Date dispoteDate;
 	
 	@Column(name = "inv_no")
 	public String invNo;
@@ -64,7 +64,7 @@ public class MachineEntity {
 	public String isActive;
 	
 	@Column(name = "created")
-	public String created;
+	public Date created;
 	
 	@Column(name = "created_by")
 	public String createdBy;

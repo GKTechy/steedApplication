@@ -19,13 +19,13 @@ public class MachineProcessMap {
 	@Id
 	@Column(name = "machine_process_map_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Long machineprocessMapId;
+	public int machineprocessMapId;
 	
 	@Column(name = "machine_name_id")
-	public String machineNameId;
+	public int machineNameId;
 	
 	@Column(name = "process_id")
-	public String processId;
+	public int processId;
 	
 	@Column(name = "created")
 	public Date created;
@@ -44,4 +44,10 @@ public class MachineProcessMap {
 	
 	@Transient
 	public String changeFlag;
+	
+	@Transient
+	public String machineName;
+	
+	@Transient
+	public String processName;
 }

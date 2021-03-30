@@ -11,5 +11,9 @@ public interface MachineDao {
 	MachineVO deleteMachinebyId(int id);
 
 	MachineVO saveMachine(MachineVO obj);
+
+	MachineVO allMachinesProcessMapDetails();
+
+	MachineVO saveMachinesProcessMapDetails(MachineVO obj);
 	
 }

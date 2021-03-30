@@ -12,4 +12,8 @@ public interface MachineService {
 
 	MachineVO saveMachine(MachineVO obj);
 
+	MachineVO allMachinesProcessMapDetails();
+
+	MachineVO saveMachinesProcessMapDetails(MachineVO obj);
+
 }
