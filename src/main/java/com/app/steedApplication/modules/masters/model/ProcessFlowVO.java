@@ -9,8 +9,6 @@ import lombok.Data;
 @Data
 public class ProcessFlowVO {
 
-	
-
 	public Boolean valid;
 	public String responseMsg;
 	public List<ProcessFlowEntity> processFlowList;
