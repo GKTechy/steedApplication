@@ -8,7 +8,6 @@ import lombok.Data;
 
 @Data
 public class DealerVO {
-
 	
 	public Boolean valid;
 	public String responseMsg;

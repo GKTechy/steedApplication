@@ -12,8 +12,5 @@ public interface DealerService {
 
 	DealerVO saveDealer(DealerVO obj);
 
-	DealerVO allDealerDetails();
-
-	DealerVO saveDealerDetails(DealerVO obj);
 
 }

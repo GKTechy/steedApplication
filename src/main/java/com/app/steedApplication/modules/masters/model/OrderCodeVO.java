@@ -2,7 +2,6 @@ package com.app.steedApplication.modules.masters.model;
 
 import java.util.List;
 
-import com.app.steedApplication.entity.OrderCodeEntity;
 
 import lombok.Data;
 
