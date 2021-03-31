@@ -22,19 +22,19 @@ public class BOMEntity {
 	public int billOfMaterialId;
 	
 	@Column(name = "bill_of_material_itemtype_id")
-	public int billOfMaterialItemtypeId;
+	public int itemtypeId;
 	
 	@Column(name = "bill_of_material_item_id")
-	public int billOfMaterialItemId;
+	public int itemId;
 	
 	@Column(name = "bill_of_material_item_quantity")
-	public int billOfMaterialItemQuantity;
+	public int quantity;
 	
 	@Column(name = "bill_of_material_uom_id")
-	public int billOfMaterialUomId;
+	public int uomId;
 	
 	@Column(name = "bill_of_material_product_id")
-	public int billOfMaterialProductId;
+	public int productId;
 	
 	@Column(name = "is_active")
 	public String isActive;

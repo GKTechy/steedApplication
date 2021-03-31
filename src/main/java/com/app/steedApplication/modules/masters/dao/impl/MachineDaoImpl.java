@@ -149,7 +149,7 @@ public class MachineDaoImpl implements MachineDao {
 		Transaction tx=session.beginTransaction();		
 		try {
 			MachineProcessMap robj=obj.getMachineProcessMapObj();
-			if(robj.getMachineprocessMapId() == 0) { // New Row
+			if(robj.getMachineProcessMapId() == 0) { // New Row
 				mlist = session.createQuery(" FROM MachineProcessMap AS u WHERE u.machineNameId = '"+robj.getMachineNameId()+"' AND u.processId = '"+robj.getProcessId()+"'").list();
 				//System.out.println("IF userList------"+mlist.size());
 				if(mlist.size() == 0) {
@@ -164,7 +164,7 @@ public class MachineDaoImpl implements MachineDao {
 					returnobj.setResponseMsg("Machine Process Already Exists");
 				}
 			}else { // update
-				mlist = session.createQuery(" FROM MachineProcessMap AS u WHERE u.machineNameId = '"+robj.getMachineNameId()+"' AND u.processId = '"+robj.getProcessId()+"' AND machineprocessMapId!="+robj.getMachineprocessMapId()).list();
+				mlist = session.createQuery(" FROM MachineProcessMap AS u WHERE u.machineNameId = '"+robj.getMachineNameId()+"' AND u.processId = '"+robj.getProcessId()+"' AND machineprocessMapId!="+robj.getMachineProcessMapId()).list();
 				//System.out.println("ELSE userList------"+mlist.size());
 				if(mlist.size() == 0) {
 					robj.setCreated(new Date());

@@ -19,7 +19,7 @@ public class MachineProcessMap {
 	@Id
 	@Column(name = "machine_process_map_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public int machineprocessMapId;
+	public int machineProcessMapId;
 	
 	@Column(name = "machine_name_id")
 	public int machineNameId;
