@@ -27,9 +27,6 @@ public class SupplierEntity {
 	@Column(name = "supplier_code")
 	public String supplierCode;
 	
-	@Column(name = "supplier_phone")
-	public String supplierPhone;
-	
 	@Column(name = "supplier_contact_person")
 	public String supplierContactPerson;
 	
@@ -50,39 +47,15 @@ public class SupplierEntity {
 	
 	@Column(name = "remarks")
 	public String remarks;
-	
-	@Column(name = "is_default_address")
-	public String isDefaultAddress;
-	
-	@Column(name = "address_name")
-	public String addressName;
-	
-	@Column(name = "address_1")
-	public String address1;
-	
-	@Column(name = "address_2")
-	public String address2;
-	
-	@Column(name = "address_3")
-	public String address3;
+		
+	@Column(name = "address")
+	public String address;
 	
 	@Column(name = "city")
 	public String city;
 	
 	@Column(name = "state")
 	public String state;
-	
-	@Column(name = "phone")
-	public String phone;
-	
-	@Column(name = "phone2")
-	public String phone2;
-	
-	@Column(name = "phone3")
-	public String phone3;
-	
-	@Column(name = "contry")
-	public String contry;
 	
 	@Column(name = "pin_code")
 	public String pinCode;
