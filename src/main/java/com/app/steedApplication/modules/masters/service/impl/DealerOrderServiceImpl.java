@@ -1,8 +1,15 @@
 package com.app.steedApplication.modules.masters.service.impl;
 
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
 import com.app.steedApplication.modules.masters.model.DealerOrderVO;
 import com.app.steedApplication.modules.masters.service.DealerOrderService;
 
+
+@Service
+@Transactional
 public class DealerOrderServiceImpl implements DealerOrderService {
 
 	@Override

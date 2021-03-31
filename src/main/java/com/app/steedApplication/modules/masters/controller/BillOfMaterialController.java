@@ -20,15 +20,14 @@ import com.app.steedApplication.modules.masters.service.BillOfMaterialService;
 @RestController
 @RequestMapping("/BillOfMaterial")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-
 public class BillOfMaterialController {
 	
 	@Autowired
-	private BillOfMaterialService BillOfMaterialService;
+	private BillOfMaterialService billOfMaterialService;
 
 	@GetMapping("/allBillOfMaterials")
 	public ResponseEntity<BillOfMaterialVO> getAllBillOfMaterials() {
-		BillOfMaterialVO robj=BillOfMaterialService.getAllBillOfMaterial();
+		BillOfMaterialVO robj=billOfMaterialService.getAllBillOfMaterial();
 		return new ResponseEntity<BillOfMaterialVO>(robj,new HttpHeaders(),HttpStatus.OK);
 	}
 	
@@ -36,13 +35,13 @@ public class BillOfMaterialController {
 
 	@GetMapping("/{id}")
 	public ResponseEntity<BillOfMaterialVO> findBillOfMaterialbyId(@PathVariable("id") int id) {
-		BillOfMaterialVO robj=BillOfMaterialService.findBillOfMaterialbyId(id);
+		BillOfMaterialVO robj=billOfMaterialService.findBillOfMaterialbyId(id);
 		return new ResponseEntity<BillOfMaterialVO>(robj,new HttpHeaders(),HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<BillOfMaterialVO> deleteBillOfMaterialbyId(@PathVariable("id") int id) {
-		BillOfMaterialVO robj=BillOfMaterialService.deleteBillOfMaterialbyId(id);
+		BillOfMaterialVO robj=billOfMaterialService.deleteBillOfMaterialbyId(id);
 		return new ResponseEntity<BillOfMaterialVO>(robj,new HttpHeaders(),HttpStatus.OK);
 	}
 	
@@ -51,7 +50,7 @@ public class BillOfMaterialController {
 	public ResponseEntity<BillOfMaterialVO> saveBillOfMaterial(@RequestBody BillOfMaterialVO obj) {
 		BillOfMaterialVO robj = new BillOfMaterialVO();
 		try {
-			robj=BillOfMaterialService.saveBillOfMaterial(obj);
+			robj=billOfMaterialService.saveBillOfMaterial(obj);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}		

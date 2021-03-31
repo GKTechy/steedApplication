@@ -6,7 +6,6 @@ import com.app.steedApplication.entity.DealerOrderEntity;
 
 import lombok.Data;
 
-@Data
 public class DealerOrderVO {
 	
 	public Boolean valid;

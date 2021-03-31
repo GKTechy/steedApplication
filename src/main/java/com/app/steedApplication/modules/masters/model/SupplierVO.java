@@ -10,7 +10,7 @@ public class SupplierVO {
 	
 	public Boolean valid;
 	public String responseMsg;
-	public List<SupplierEntity> roleList;
-	public SupplierEntity roleObj;
+	public List<SupplierEntity> supplierList;
+	public SupplierEntity supplierObj;
 
 }

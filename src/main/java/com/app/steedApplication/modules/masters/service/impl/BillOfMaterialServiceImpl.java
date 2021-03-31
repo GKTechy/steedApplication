@@ -1,11 +1,16 @@
 package com.app.steedApplication.modules.masters.service.impl;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.app.steedApplication.modules.masters.dao.BillOfMaterialDao;
 import com.app.steedApplication.modules.masters.model.BillOfMaterialVO;
 import com.app.steedApplication.modules.masters.service.BillOfMaterialService;
 
+@Service
+@Transactional
 public class BillOfMaterialServiceImpl implements BillOfMaterialService {
 	
 	@Autowired

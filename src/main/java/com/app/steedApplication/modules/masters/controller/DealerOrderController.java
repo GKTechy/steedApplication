@@ -24,11 +24,11 @@ import com.app.steedApplication.modules.masters.service.DealerOrderService;
 public class DealerOrderController {
 	
 	@Autowired
-	private DealerOrderService DealerOrderService;
+	private DealerOrderService dealerOrderService;
 
 	@GetMapping("/allDealerOrders")
 	public ResponseEntity<DealerOrderVO> getAllDealerOrders() {
-		DealerOrderVO robj=DealerOrderService.getAllDealerOrder();
+		DealerOrderVO robj=dealerOrderService.getAllDealerOrder();
 		return new ResponseEntity<DealerOrderVO>(robj,new HttpHeaders(),HttpStatus.OK);
 	}
 	
@@ -36,13 +36,13 @@ public class DealerOrderController {
 
 	@GetMapping("/{id}")
 	public ResponseEntity<DealerOrderVO> findDealerOrderbyId(@PathVariable("id") int id) {
-		DealerOrderVO robj=DealerOrderService.findDealerOrderbyId(id);
+		DealerOrderVO robj=dealerOrderService.findDealerOrderbyId(id);
 		return new ResponseEntity<DealerOrderVO>(robj,new HttpHeaders(),HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<DealerOrderVO> deleteDealerOrderbyId(@PathVariable("id") int id) {
-		DealerOrderVO robj=DealerOrderService.deleteDealerOrderbyId(id);
+		DealerOrderVO robj=dealerOrderService.deleteDealerOrderbyId(id);
 		return new ResponseEntity<DealerOrderVO>(robj,new HttpHeaders(),HttpStatus.OK);
 	}
 	
@@ -51,7 +51,7 @@ public class DealerOrderController {
 	public ResponseEntity<DealerOrderVO> saveDealerOrder(@RequestBody DealerOrderVO obj) {
 		DealerOrderVO robj = new DealerOrderVO();
 		try {
-			robj=DealerOrderService.saveDealerOrder(obj);
+			robj=dealerOrderService.saveDealerOrder(obj);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}		
