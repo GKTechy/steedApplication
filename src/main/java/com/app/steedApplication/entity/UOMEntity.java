@@ -17,7 +17,7 @@ import lombok.Data;
 @Table(name="unit_of_measurement")
 public class UOMEntity {
 	@Id
-	@Column(name = "unit_of_measurement_id")
+	@Column(name = "measurement_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long unitOfMeasurementId;
 	
@@ -28,8 +28,8 @@ public class UOMEntity {
 	public String measurementShortName;
 	
 	
-	@Column(name = "measurement_type_id")
-	public String measurementTypeId;
+	@Column(name = "measurement_type")
+	public String measurementType;
 	
 	@Column(name = "base_measurement")
 	public String baseMeasurement;
@@ -45,7 +45,7 @@ public class UOMEntity {
 	public String variedMeasurement;
 	
 	@Column(name = "is_active")
-	public Boolean isActive;
+	public String isActive;
 	
 	@Column(name = "created")
 	public Date created;
