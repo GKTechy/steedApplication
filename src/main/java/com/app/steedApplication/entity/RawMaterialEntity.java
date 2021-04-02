@@ -45,15 +45,15 @@ public class RawMaterialEntity {
 	@Column(name = "reference_level")
 	public String referenceLevel;
 	
-	@Column(name = "supplier_name")
-	public String supplierName;
+	@Column(name = "supplier_id")
+	public String supplierId;
 	
 	
 	@Column(name = "hsn_code")
 	public String hsnCode;
 	
 	@Column(name = "is_bom")
-	public Boolean isBom;
+	public String isBom;
 	
 	@Column(name = "is_active")
 	public String isActive;
@@ -76,7 +76,8 @@ public class RawMaterialEntity {
 	@Transient
 	public String changeFlag;
 	
-	
+	@Transient
+	public String supplierName;
 	
 }
 
