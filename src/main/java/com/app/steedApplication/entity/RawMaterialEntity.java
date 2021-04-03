@@ -19,7 +19,7 @@ public class RawMaterialEntity {
 	@Id
 	@Column(name = "raw_material_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Long rawMaterialId;
+	public int rawMaterialId;
 	
 	@Column(name = "raw_material_name")
 	public String rawMaterialName;
@@ -46,7 +46,7 @@ public class RawMaterialEntity {
 	public String referenceLevel;
 	
 	@Column(name = "supplier_id")
-	public String supplierId;
+	public int supplierId;
 	
 	
 	@Column(name = "hsn_code")

@@ -1,12 +1,18 @@
 package com.app.steedApplication.modules.masters.dao.impl;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.app.steedApplication.entity.DealerEntity;
+import com.app.steedApplication.entity.ProcessFlowEntity;
 import com.app.steedApplication.modules.masters.dao.ProcessFlowDao;
+import com.app.steedApplication.modules.masters.model.DealerVO;
 import com.app.steedApplication.modules.masters.model.ProcessFlowVO;
 
 
@@ -24,8 +30,25 @@ public class ProcessFlowDaoImpl implements ProcessFlowDao {
 	
 	@Override
 	public ProcessFlowVO getAllProcessFlows() {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = this.sessionFactory.openSession();
+		ProcessFlowVO returnobj=new ProcessFlowVO();
+		List<ProcessFlowEntity> tableList= new ArrayList<ProcessFlowEntity>();
+		try {
+			tableList = session.createQuery(" FROM ProcessFlowEntity r ").list();
+		//	System.out.println("roleList------"+roleList.size());
+			returnobj.setValid(true);
+			returnobj.setProcessFlowList(tableList);
+		} catch (Exception e) {
+			e.printStackTrace();
+			returnobj.setValid(false);
+			returnobj.setResponseMsg(e.getMessage());
+		} finally {
+			if(session != null){
+				session.close();
+				session = null;
+			}			
+		}		
+		return returnobj;
 	}
 
 	@Override

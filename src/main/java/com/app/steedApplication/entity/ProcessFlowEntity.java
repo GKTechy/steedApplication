@@ -51,6 +51,12 @@ public class ProcessFlowEntity {
 	@Transient
 	public String changeFlag;
 	
+	@Transient
+	public String processName;
+	
+	@Transient
+	public String productName;
+	
 	
 	
 }

@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.app.steedApplication.modules.masters.dao.ProcessDao;
 import com.app.steedApplication.modules.masters.dao.ProcessFlowDao;
+import com.app.steedApplication.modules.masters.dao.ProductDao;
 import com.app.steedApplication.modules.masters.model.ProcessFlowVO;
 import com.app.steedApplication.modules.masters.service.ProcessFlowService;
 
@@ -15,12 +17,20 @@ public class ProcessFlowServiceImpl implements ProcessFlowService {
 	@Autowired
 	private ProcessFlowDao processFlowDao;
 
+	@Autowired
+	private ProcessDao processDao;
+	
+	@Autowired
+	private ProductDao productDao;
+	
 	
 	@Override
 	public ProcessFlowVO getAllProcessFlows() {
 		ProcessFlowVO returnobj = new ProcessFlowVO();
 		try {
 			returnobj= processFlowDao.getAllProcessFlows();
+			returnobj.setProcessList(processDao.getAllProcesss().getProcessList());
+			returnobj.setProductList(productDao.getAllProducts().getProductList());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -122,8 +122,7 @@ public class MachineDaoImpl implements MachineDao {
 		MachineVO returnobj=new MachineVO();
 		List<MachineProcessMap> tableList= new ArrayList<MachineProcessMap>();
 		try {
-			tableList = session.createSQLQuery(" SELECT mp.machine_process_map_id AS machineprocessMapId,mp.machine_name_id AS machineNameId,m.machine_name AS machineName,p.process_id AS processId,p.process_name as processName FROM machine_process_map mp, machine m, process p WHERE\r\n"
-					+ " mp.machine_name_id=m.machine_id AND p.process_id=mp.process_id")
+			tableList = session.createSQLQuery(" SELECT mp.machine_process_map_id AS machineprocessMapId,mp.machine_name_id AS machineNameId,m.machine_name AS machineName,p.process_id AS processId,p.process_name as processName FROM machine_process_map mp, machine m, process p WHERE mp.machine_name_id=m.machine_id AND p.process_id=mp.process_id")
 					.setResultTransformer(Transformers.aliasToBean(MachineProcessMap.class)).list();
 		//	System.out.println("roleList------"+roleList.size());
 			returnobj.setValid(true);

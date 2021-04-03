@@ -8,9 +8,11 @@ import java.util.logging.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.app.steedApplication.entity.MachineProcessMap;
 import com.app.steedApplication.entity.RawMaterialEntity;
 import com.app.steedApplication.modules.masters.dao.RawMaterialDao;
 import com.app.steedApplication.modules.masters.model.RawMaterialVO;
@@ -30,7 +32,8 @@ public class RawMaterialDaoImpl implements RawMaterialDao{
 		List<RawMaterialEntity> tableList= new ArrayList<RawMaterialEntity>();
 		try {
 
-			tableList = session.createQuery(" FROM RawMaterialEntity r where r.isActive='Active'").list();
+			tableList = session.createSQLQuery("SELECT rm.raw_material_id AS rawMaterialId,rm.raw_material_name AS rawMaterialName,rm.material_code AS materialCode,rm.item_type AS itemType,rm.remarks AS remarks,rm.measurement_type AS measurementType,rm.units AS units,rm.price AS price,rm.reference_level AS referenceLevel,rm.hsn_code AS hsnCode, rm.is_bom AS isBom,rm.is_active AS isActive,rm.supplier_id AS supplierId,s.supplier_name AS supplierName FROM raw_material rm, supplier s WHERE s.supplier_id=rm.supplier_id AND rm.is_active='Active'")
+					.setResultTransformer(Transformers.aliasToBean(RawMaterialEntity.class)).list();
 		//	System.out.println("roleList------"+roleList.size());
 			returnobj.setValid(true);
 			returnobj.setRawMaterialList(tableList);
