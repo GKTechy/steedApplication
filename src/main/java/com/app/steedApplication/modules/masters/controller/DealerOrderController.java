@@ -17,7 +17,7 @@ import com.app.steedApplication.modules.masters.model.DealerOrderVO;
 import com.app.steedApplication.modules.masters.service.DealerOrderService;
 
 @RestController
-@RequestMapping("/DealerOrder")
+@RequestMapping("/dealerOrder")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 
 

@@ -29,6 +29,30 @@ public class ProductEntity {
 	
 	@Column(name = "product_code")
 	public String productCode;
+
+	@Column(name = "order_code")
+	public String orderCode;
+	
+	@Column(name = "size")
+	public String size;
+	
+	@Column(name = "colors")
+	public String colors;
+
+	@Column(name = "catgory")
+	public String catgory;
+	
+	@Column(name = "transmission")
+	public String transmission;
+
+	@Column(name = "frame")
+	public String frame;
+	
+	@Column(name = "description")
+	public String description;
+	
+	@Column(name = "image")
+	public String image;
 	
 	@Column(name = "is_active")
 	public String isActive;

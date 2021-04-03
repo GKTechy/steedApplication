@@ -1,11 +1,13 @@
 package com.app.steedApplication.modules.masters.dao.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -65,8 +67,55 @@ public class ProcessFlowDaoImpl implements ProcessFlowDao {
 
 	@Override
 	public ProcessFlowVO saveProcessFlow(ProcessFlowVO obj) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = this.sessionFactory.openSession();
+		ProcessFlowVO returnobj=new ProcessFlowVO();
+		List<ProcessFlowEntity> mlist= new ArrayList<ProcessFlowEntity>();
+		Transaction tx=session.beginTransaction();		
+		try {
+			ProcessFlowEntity robj=obj.getProcessFlowObj();
+			if(robj.getProcessFlowId() == 0) { // New Row
+				mlist = session.createQuery(" FROM ProcessFlowEntity AS u WHERE u.productId = '"+robj.getProductId()+"' AND u.processId = '"+robj.getProcessId()+"'").list();
+				//System.out.println("IF userList------"+mlist.size());
+				if(mlist.size() == 0) {
+					
+					//System.out.println("active-->"+robj.getIsActive());
+					robj.setCreated(new Date());
+					robj.setUpdated(new Date());
+					session.save(robj);
+					returnobj.setValid(true);
+				} else {
+					returnobj.setValid(false);
+					returnobj.setResponseMsg("Process Flow Already Exists");
+				}
+			}else { // update
+				mlist = session.createQuery(" FROM ProcessFlowEntity AS u WHERE u.productId = '"+robj.getProductId()+"'  AND processId="+robj.getProcessId()+"+ AND processFlowId!="+robj.getProcessFlowId()).list();
+				//System.out.println("ELSE userList------"+mlist.size());
+				if(mlist.size() == 0) {
+					robj.setCreated(new Date());
+					robj.setUpdated(new Date());
+					session.saveOrUpdate(robj);
+					returnobj.setValid(true);
+				} else {
+					returnobj.setValid(false);
+					returnobj.setResponseMsg("Process Flow Already Exists");
+				}
+			}
+			
+			tx.commit();
+		} catch (Exception e) {
+			tx.rollback();
+			e.printStackTrace();
+			returnobj.setValid(false);
+			returnobj.setResponseMsg(e.getMessage());
+			logger.info(e.getMessage());
+		} finally {
+			if(session != null){
+				session.close();
+				session = null;
+			}	
+	
+		}		
+		return returnobj;
 	}
 
 }
