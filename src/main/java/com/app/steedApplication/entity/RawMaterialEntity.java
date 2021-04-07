@@ -55,6 +55,15 @@ public class RawMaterialEntity {
 	@Column(name = "is_bom")
 	public String isBom;
 	
+	@Column(name = "is_basic")
+	public Boolean isBasic;
+	
+	@Column(name = "is_common")
+	public Boolean isCommon;
+	
+	@Column(name = "is_premium")
+	public Boolean isPremium;
+	
 	@Column(name = "is_active")
 	public String isActive;
 	
