@@ -13,6 +13,8 @@ public interface BillOfMaterialDao {
 
 	BillOfMaterialVO saveBillOfMaterial(BillOfMaterialVO obj);
 
+	BillOfMaterialVO productBoms(int productId);
+
 	
 	
 }

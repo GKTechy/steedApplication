@@ -21,7 +21,7 @@ public class BOMEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int billOfMaterialId;
 	
-	@Column(name = "bill_of_material_itemtype_id")
+	@Column(name = "itemtype_id")
 	public int itemtypeId;
 	
 	@Column(name = "bill_of_material_item_id")
@@ -33,7 +33,7 @@ public class BOMEntity {
 	@Column(name = "bill_of_material_uom_id")
 	public int uomId;
 	
-	@Column(name = "bill_of_material_product_id")
+	@Column(name = "product_id")
 	public int productId;
 	
 	@Column(name = "is_active")

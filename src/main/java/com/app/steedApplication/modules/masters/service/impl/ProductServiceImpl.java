@@ -23,6 +23,7 @@ public class ProductServiceImpl implements ProductService {
 		try {
 			returnobj= productDao.getAllProducts();
 			returnobj.setProductVarientList(productDao.allProductVarients().getProductVarientList());
+			returnobj.setProductList(productDao.getAllProducts().getProductList());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

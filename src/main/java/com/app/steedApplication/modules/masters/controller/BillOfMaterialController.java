@@ -12,13 +12,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.steedApplication.modules.masters.model.BillOfMaterialVO;
 import com.app.steedApplication.modules.masters.service.BillOfMaterialService;
 
 @RestController
-@RequestMapping("/BillOfMaterial")
+@RequestMapping("/billOfMaterial")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class BillOfMaterialController {
 	
@@ -32,7 +33,12 @@ public class BillOfMaterialController {
 	}
 	
 	
-
+	@GetMapping("/productBoms")
+	public ResponseEntity<BillOfMaterialVO> productBoms(@RequestParam(name = "productId") int productId) {
+		BillOfMaterialVO robj=billOfMaterialService.productBoms(productId);
+		return new ResponseEntity<BillOfMaterialVO>(robj,new HttpHeaders(),HttpStatus.OK);
+	}
+	
 	@GetMapping("/{id}")
 	public ResponseEntity<BillOfMaterialVO> findBillOfMaterialbyId(@PathVariable("id") int id) {
 		BillOfMaterialVO robj=billOfMaterialService.findBillOfMaterialbyId(id);

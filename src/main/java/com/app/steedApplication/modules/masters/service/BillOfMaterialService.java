@@ -12,6 +12,8 @@ public interface BillOfMaterialService {
 
 	BillOfMaterialVO saveBillOfMaterial(BillOfMaterialVO obj);
 
+	BillOfMaterialVO productBoms(int productId);
+
 	
 
 }
