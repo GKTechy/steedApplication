@@ -58,4 +58,21 @@ public class ProductController {
 	}
 	
 	
+	@GetMapping("/allProductVarients")
+	public ResponseEntity<ProductVO> allProductVarients() {
+		ProductVO robj=productService.allProductVarients();
+		return new ResponseEntity<ProductVO>(robj,new HttpHeaders(),HttpStatus.OK);
+	}
+	@PostMapping("/saveProductVarient")
+	public ResponseEntity<ProductVO> saveProductVarient(@RequestBody ProductVO obj) {
+		ProductVO robj = new ProductVO();
+		try {
+			robj=productService.saveProductVarient(obj);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
+		return new ResponseEntity<ProductVO>(robj,new HttpHeaders(),HttpStatus.OK);
+	}
+	
+	
 }

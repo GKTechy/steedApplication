@@ -22,6 +22,7 @@ public class ProductServiceImpl implements ProductService {
 		ProductVO returnobj = new ProductVO();
 		try {
 			returnobj= productDao.getAllProducts();
+			returnobj.setProductVarientList(productDao.allProductVarients().getProductVarientList());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -59,6 +60,31 @@ public class ProductServiceImpl implements ProductService {
 		try {
 			returnobj= productDao.saveProduct(obj) ;
 			returnobj.setProductList(productDao.getAllProducts().getProductList());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return returnobj;
+	}
+
+
+	@Override
+	public ProductVO allProductVarients() {
+		ProductVO returnobj = new ProductVO();
+		try {
+			returnobj= productDao.allProductVarients();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return returnobj;
+	}
+
+
+	@Override
+	public ProductVO saveProductVarient(ProductVO obj) {
+		ProductVO returnobj = new ProductVO();
+		try {
+			returnobj= productDao.saveProductVarient(obj) ;
+			returnobj.setProductVarientList(productDao.allProductVarients().getProductVarientList());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

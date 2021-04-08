@@ -39,8 +39,8 @@ public class ProductEntity {
 	@Column(name = "colors")
 	public String colors;
 
-	@Column(name = "catgory")
-	public String catgory;
+	@Column(name = "varient_id")
+	public String varientId;
 	
 	@Column(name = "transmission")
 	public String transmission;

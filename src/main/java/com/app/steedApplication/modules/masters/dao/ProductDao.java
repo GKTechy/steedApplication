@@ -12,4 +12,8 @@ public interface ProductDao {
 
 	ProductVO saveProduct(ProductVO obj);
 
+	ProductVO allProductVarients();
+
+	ProductVO saveProductVarient(ProductVO obj);
+
 }

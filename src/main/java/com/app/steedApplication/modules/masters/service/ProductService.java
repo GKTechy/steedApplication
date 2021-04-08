@@ -12,4 +12,8 @@ public interface ProductService {
 
 	ProductVO saveProduct(ProductVO obj);
 
+	ProductVO allProductVarients();
+
+	ProductVO saveProductVarient(ProductVO obj);
+
 }

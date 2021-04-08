@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import com.app.steedApplication.entity.DealerEntity;
 import com.app.steedApplication.entity.ProductEntity;
+import com.app.steedApplication.entity.ProductVarientEntity;
 import com.app.steedApplication.entity.UserRoleEntity;
 import com.app.steedApplication.modules.masters.dao.ProductDao;
 import com.app.steedApplication.modules.masters.model.DealerVO;
@@ -100,6 +101,84 @@ public class ProductDaoImpl implements ProductDao {
 				} else {
 					returnobj.setValid(false);
 					returnobj.setResponseMsg("Product Name Already Exists");
+				}
+			}
+			
+			tx.commit();
+		} catch (Exception e) {
+			tx.rollback();
+			e.printStackTrace();
+			returnobj.setValid(false);
+			returnobj.setResponseMsg(e.getMessage());
+			logger.info(e.getMessage());
+		} finally {
+			if(session != null){
+				session.close();
+				session = null;
+			}	
+	
+		}		
+		return returnobj;
+	}
+
+	@Override
+	public ProductVO allProductVarients() {
+		Session session = this.sessionFactory.openSession();
+		ProductVO returnobj=new ProductVO();
+		List<ProductVarientEntity> tableList= new ArrayList<ProductVarientEntity>();
+		try {
+			tableList = session.createQuery(" FROM ProductVarientEntity r where r.isActive='Active'").list();
+		//	System.out.println("roleList------"+roleList.size());
+			returnobj.setValid(true);
+			returnobj.setProductVarientList(tableList);
+		} catch (Exception e) {
+			e.printStackTrace();
+			returnobj.setValid(false);
+			returnobj.setResponseMsg(e.getMessage());
+		} finally {
+			if(session != null){
+				session.close();
+				session = null;
+			}			
+		}		
+		return returnobj;
+	}
+
+	@Override
+	public ProductVO saveProductVarient(ProductVO obj) {
+		Session session = this.sessionFactory.openSession();
+		ProductVO returnobj=new ProductVO();
+		List<ProductVarientEntity> roleList= new ArrayList<ProductVarientEntity>();
+		Transaction tx=session.beginTransaction();		
+		try {
+			ProductVarientEntity roleObj=obj.getProductVarientObj();
+			if(roleObj.getVarientId() == 0) { // New Row
+				roleList = session.createQuery(" FROM ProductVarientEntity AS u WHERE u.name = '"+roleObj.getName()+"'").list();
+				System.out.println("IF userList------"+roleList.size());
+				if(roleList.size() == 0) {
+					
+					
+					roleObj.setCreated(new Date());
+					roleObj.setUpdated(new Date());
+					session.save(roleObj);
+					returnobj.setValid(true);
+				} else {
+					returnobj.setValid(false);
+					returnobj.setResponseMsg("Product Varient Name Already Exists");
+				}
+			}else { // update
+				roleList = session.createQuery(" FROM ProductVarientEntity AS u WHERE u.name = '"+roleObj.getName()+"' AND varientId!="+roleObj.getVarientId()).list();
+				System.out.println("ELSE userList------"+roleList.size());
+				if(roleList.size() == 0) {
+					
+					
+					roleObj.setCreated(new Date());
+					roleObj.setUpdated(new Date());
+					session.saveOrUpdate(roleObj);
+					returnobj.setValid(true);
+				} else {
+					returnobj.setValid(false);
+					returnobj.setResponseMsg("Product Varient Name Already Exists");
 				}
 			}
 			
