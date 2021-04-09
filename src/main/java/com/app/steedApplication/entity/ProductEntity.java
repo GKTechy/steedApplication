@@ -51,6 +51,9 @@ public class ProductEntity {
 	@Column(name = "description")
 	public String description;
 	
+	@Column(name = "category")
+	public String category;
+	
 	@Column(name = "image")
 	public String image;
 	

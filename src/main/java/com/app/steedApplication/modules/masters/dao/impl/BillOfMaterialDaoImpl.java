@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import com.app.steedApplication.entity.BOMEntity;
 import com.app.steedApplication.entity.DealerEntity;
 import com.app.steedApplication.entity.MachineProcessMap;
+import com.app.steedApplication.entity.ProductEntity;
 import com.app.steedApplication.modules.masters.dao.BillOfMaterialDao;
 import com.app.steedApplication.modules.masters.model.BillOfMaterialVO;
 import com.app.steedApplication.modules.masters.model.DealerVO;
@@ -72,8 +73,21 @@ public class BillOfMaterialDaoImpl implements BillOfMaterialDao {
 		Session session = this.sessionFactory.openSession();
 		BillOfMaterialVO returnobj=new BillOfMaterialVO();
 		List<BillOfMaterialVO> tableList= new ArrayList<BillOfMaterialVO>();
+		ProductEntity productObj=new ProductEntity();
 		try {
-			tableList = session.createSQLQuery(" SELECT rm.raw_material_id AS productId,rm.raw_material_name AS prouductName,rm.measurement_type AS measurementType,'' AS qty FROM raw_material rm WHERE is_bom='Active'")
+			productObj=(ProductEntity) session.createQuery(" FROM ProductEntity AS u WHERE u.productId = '"+productId+"'").uniqueResult();
+			
+			String categoryqry="";
+			
+			if(productObj.getCategory().equalsIgnoreCase("basic")) {
+				categoryqry="AND rm.is_basic=1 and rm.is_common=1";
+			}else {
+				categoryqry="AND rm.is_premium=1 and rm.is_common=1";
+			}
+			
+			tableList = session.createSQLQuery("SELECT rm.raw_material_id AS productId,rm.raw_material_name AS productName,rm.measurement_type AS measurementType,'' AS qty  FROM raw_material rm WHERE is_bom='Active' "+categoryqry+"  AND rm.raw_material_id NOT IN (SELECT bm.bill_of_material_item_id  FROM bill_of_material bm WHERE bm.product_id= '"+productId+"')\r\n" + 
+					"   union " + 
+					"  SELECT bm.bill_of_material_item_id AS productId,rm.raw_material_name AS productName,rm.measurement_type AS measurementType,bm.bill_of_material_item_quantity AS qty  FROM bill_of_material bm,raw_material rm WHERE bm.bill_of_material_item_id=rm.raw_material_id AND rm.is_bom='Active'  AND rm.raw_material_id NOT IN ( SELECT bm.bill_of_material_item_id  FROM bill_of_material bm WHERE bm.product_id= '"+productId+"')")
 					.setResultTransformer(Transformers.aliasToBean(BillOfMaterialVO.class)).list();
 		//	System.out.println("roleList------"+roleList.size());
 			returnobj.setValid(true);

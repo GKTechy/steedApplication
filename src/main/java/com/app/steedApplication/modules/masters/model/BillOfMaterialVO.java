@@ -22,7 +22,7 @@ public class BillOfMaterialVO {
 	
 	public List<BillOfMaterialVO> bomProductList;
 	public int productId;
-	public String prouductName;
+	public String productName;
 	public String measurementType;
 	public String qty;
 	public Boolean rowSelected=false;
