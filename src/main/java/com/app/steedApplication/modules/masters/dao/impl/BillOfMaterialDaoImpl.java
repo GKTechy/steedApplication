@@ -6,11 +6,13 @@ import java.util.logging.Logger;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.app.steedApplication.entity.BOMEntity;
 import com.app.steedApplication.entity.DealerEntity;
+import com.app.steedApplication.entity.MachineProcessMap;
 import com.app.steedApplication.modules.masters.dao.BillOfMaterialDao;
 import com.app.steedApplication.modules.masters.model.BillOfMaterialVO;
 import com.app.steedApplication.modules.masters.model.DealerVO;
@@ -69,12 +71,13 @@ public class BillOfMaterialDaoImpl implements BillOfMaterialDao {
 	public BillOfMaterialVO productBoms(int productId) {
 		Session session = this.sessionFactory.openSession();
 		BillOfMaterialVO returnobj=new BillOfMaterialVO();
-		List<BOMEntity> tableList= new ArrayList<BOMEntity>();
+		List<BillOfMaterialVO> tableList= new ArrayList<BillOfMaterialVO>();
 		try {
-			tableList = session.createQuery(" FROM BOMEntity r where r.isActive='Active'").list();
+			tableList = session.createSQLQuery(" SELECT rm.raw_material_id AS productId,rm.raw_material_name AS prouductName,rm.measurement_type AS measurementType,'' AS qty FROM raw_material rm WHERE is_bom='Active'")
+					.setResultTransformer(Transformers.aliasToBean(BillOfMaterialVO.class)).list();
 		//	System.out.println("roleList------"+roleList.size());
 			returnobj.setValid(true);
-			returnobj.setBOMList(tableList);
+			returnobj.setBomProductList(tableList);
 		} catch (Exception e) {
 			e.printStackTrace();
 			returnobj.setValid(false);

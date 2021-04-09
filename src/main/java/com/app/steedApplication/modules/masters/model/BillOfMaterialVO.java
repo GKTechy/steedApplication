@@ -19,4 +19,11 @@ public class BillOfMaterialVO {
 	public List<ProductEntity> productList;
 	public ProductEntity productObj;
 	
+	
+	public List<BillOfMaterialVO> bomProductList;
+	public int productId;
+	public String prouductName;
+	public String measurementType;
+	public String qty;
+	public Boolean rowSelected=false;
 }

@@ -35,6 +35,9 @@ public class NoteForApprovalEntity {
 	@Column(name = "nfa_description")
 	public String nfaDescription;
 	
+	@Column(name = "status")
+	public String status;
+	
 	@Column(name = "is_active")
 	public String isActive;
 	

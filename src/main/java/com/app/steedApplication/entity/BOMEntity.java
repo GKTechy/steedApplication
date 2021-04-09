@@ -57,6 +57,7 @@ public class BOMEntity {
 	@Transient
 	public String changeFlag;
 	
-	
+	@Transient
+	public String productName;
 	
 }
