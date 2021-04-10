@@ -78,9 +78,9 @@ public class NoteForApprovalDaoImpl implements NoteForApprovalDao {
 					//System.out.println("active-->"+robj.getIsActive());
 					robj.setCreated(new Date());
 					robj.setUpdated(new Date());
-					robj.setApprovedBy(100);
-					robj.setApprovedOn(new Date());
-					robj.setPreparedBy("100");
+					//robj.setApprovedBy(100);
+					//robj.setApprovedOn(new Date());
+					//robj.setPreparedBy("100");
 					robj.setPreparedON(new Date());
 					robj.setNfaActive("Active");
 					session.save(robj);
