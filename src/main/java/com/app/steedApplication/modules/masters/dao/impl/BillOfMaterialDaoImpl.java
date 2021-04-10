@@ -80,9 +80,9 @@ public class BillOfMaterialDaoImpl implements BillOfMaterialDao {
 			String categoryqry="";
 			
 			if(productObj.getCategory().equalsIgnoreCase("basic")) {
-				categoryqry="AND rm.is_basic=1 and rm.is_common=1";
+				categoryqry="AND rm.is_basic=1 OR rm.is_common=1";
 			}else {
-				categoryqry="AND rm.is_premium=1 and rm.is_common=1";
+				categoryqry="AND rm.is_premium=1 OR rm.is_common=1";
 			}
 			
 			tableList = session.createSQLQuery("SELECT rm.raw_material_id AS productId,rm.raw_material_name AS productName,rm.measurement_type AS measurementType,'' AS qty  FROM raw_material rm WHERE is_bom='Active' "+categoryqry+"  AND rm.raw_material_id NOT IN (SELECT bm.bill_of_material_item_id  FROM bill_of_material bm WHERE bm.product_id= '"+productId+"')\r\n" + 

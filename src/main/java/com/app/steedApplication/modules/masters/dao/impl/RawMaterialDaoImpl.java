@@ -32,7 +32,7 @@ public class RawMaterialDaoImpl implements RawMaterialDao{
 		List<RawMaterialEntity> tableList= new ArrayList<RawMaterialEntity>();
 		try {
 
-			tableList = session.createSQLQuery("SELECT rm.raw_material_id AS rawMaterialId,rm.raw_material_name AS rawMaterialName,rm.material_code AS materialCode,rm.item_type AS itemType,rm.remarks AS remarks,rm.measurement_type AS measurementType,rm.units AS units,rm.price AS price,rm.reference_level AS referenceLevel,rm.hsn_code AS hsnCode, rm.is_bom AS isBom,rm.is_active AS isActive,rm.supplier_id AS supplierId,s.supplier_name AS supplierName FROM raw_material rm, supplier s WHERE s.supplier_id=rm.supplier_id AND rm.is_active='Active'")
+			tableList = session.createSQLQuery("SELECT rm.raw_material_id AS rawMaterialId,rm.raw_material_name AS rawMaterialName,rm.material_code AS materialCode,rm.item_type AS itemType,rm.remarks AS remarks,rm.measurement_type AS measurementType,rm.units AS units,rm.price AS price,rm.reference_level AS referenceLevel,rm.hsn_code AS hsnCode, rm.is_bom AS isBom,rm.is_active AS isActive,rm.supplier_id AS supplierId,s.supplier_name AS supplierName,if(rm.is_basic,1,0) AS isBasic, rm.is_common AS isCommon,rm.is_premium AS isPremium FROM raw_material rm, supplier s WHERE s.supplier_id=rm.supplier_id AND rm.is_active='Active'")
 					.setResultTransformer(Transformers.aliasToBean(RawMaterialEntity.class)).list();
 		//	System.out.println("roleList------"+roleList.size());
 			returnobj.setValid(true);
