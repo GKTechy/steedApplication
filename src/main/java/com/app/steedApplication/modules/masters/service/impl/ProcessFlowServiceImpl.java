@@ -30,7 +30,7 @@ public class ProcessFlowServiceImpl implements ProcessFlowService {
 		try {
 			returnobj= processFlowDao.getAllProcessFlows();
 			returnobj.setProcessList(processDao.getAllProcesss().getProcessList());
-			returnobj.setProductList(productDao.getAllProducts().getProductList());
+			returnobj.setProductList(productDao.getProductsWithOrderCode().getProductList());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

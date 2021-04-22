@@ -8,10 +8,12 @@ import java.util.logging.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.app.steedApplication.entity.DealerEntity;
+import com.app.steedApplication.entity.MachineProcessMap;
 import com.app.steedApplication.entity.ProductEntity;
 import com.app.steedApplication.entity.ProductVarientEntity;
 import com.app.steedApplication.entity.UserRoleEntity;
@@ -53,6 +55,32 @@ public class ProductDaoImpl implements ProductDao {
 		}		
 		return returnobj;
 	}
+	
+	@Override
+	public ProductVO getProductsWithOrderCode() {
+		Session session = this.sessionFactory.openSession();
+		ProductVO returnobj=new ProductVO();
+		List<ProductEntity> tableList= new ArrayList<ProductEntity>();
+		try {
+			tableList = session.createSQLQuery("SELECT p.product_id AS productId,CONCAT(p.order_code,'_',p.colors,'_',p.product_name) as productName FROM product p WHERE p.is_active='Active'")
+					.setResultTransformer(Transformers.aliasToBean(ProductEntity.class)).list();
+		//	System.out.println("roleList------"+roleList.size());
+			returnobj.setValid(true);
+			returnobj.setProductList(tableList);
+		} catch (Exception e) {
+			e.printStackTrace();
+			returnobj.setValid(false);
+			returnobj.setResponseMsg(e.getMessage());
+		} finally {
+			if(session != null){
+				session.close();
+				session = null;
+			}			
+		}		
+		return returnobj;
+	}
+	
+	
 
 	@Override
 	public ProductVO findProductbyId(int id) {
@@ -75,11 +103,9 @@ public class ProductDaoImpl implements ProductDao {
 		try {
 			ProductEntity roleObj=obj.getProductObj();
 			if(roleObj.getProductId() == 0) { // New Row
-				roleList = session.createQuery(" FROM ProductEntity AS u WHERE u.productName = '"+roleObj.getProductName()+"'").list();
+				roleList = session.createQuery(" FROM ProductEntity AS u WHERE u.orderCode = '"+roleObj.getOrderCode()+"'").list();
 				System.out.println("IF userList------"+roleList.size());
 				if(roleList.size() == 0) {
-					
-					
 					roleObj.setCreated(new Date());
 					roleObj.setUpdated(new Date());
 					session.save(roleObj);
@@ -89,19 +115,19 @@ public class ProductDaoImpl implements ProductDao {
 					returnobj.setResponseMsg("Product Name Already Exists");
 				}
 			}else { // update
-				roleList = session.createQuery(" FROM ProductEntity AS u WHERE u.productName = '"+roleObj.getProductName()+"' AND productId!="+roleObj.getProductId()).list();
-				System.out.println("ELSE userList------"+roleList.size());
-				if(roleList.size() == 0) {
+			//	roleList = session.createQuery(" FROM ProductEntity AS u WHERE u.productName = '"+roleObj.getProductName()+"' AND productId!="+roleObj.getProductId()).list();
+			//	System.out.println("ELSE userList------"+roleList.size());
+				//if(roleList.size() == 0) {
 					
 					
 					roleObj.setCreated(new Date());
 					roleObj.setUpdated(new Date());
 					session.saveOrUpdate(roleObj);
 					returnobj.setValid(true);
-				} else {
-					returnobj.setValid(false);
-					returnobj.setResponseMsg("Product Name Already Exists");
-				}
+				//} else {
+				//	returnobj.setValid(false);
+				//	returnobj.setResponseMsg("Product Name Already Exists");
+				//}
 			}
 			
 			tx.commit();

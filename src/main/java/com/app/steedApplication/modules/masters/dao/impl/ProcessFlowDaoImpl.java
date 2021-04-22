@@ -8,11 +8,13 @@ import java.util.logging.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.app.steedApplication.entity.DealerEntity;
 import com.app.steedApplication.entity.ProcessFlowEntity;
+import com.app.steedApplication.entity.ProductEntity;
 import com.app.steedApplication.modules.masters.dao.ProcessFlowDao;
 import com.app.steedApplication.modules.masters.model.DealerVO;
 import com.app.steedApplication.modules.masters.model.ProcessFlowVO;
@@ -36,7 +38,8 @@ public class ProcessFlowDaoImpl implements ProcessFlowDao {
 		ProcessFlowVO returnobj=new ProcessFlowVO();
 		List<ProcessFlowEntity> tableList= new ArrayList<ProcessFlowEntity>();
 		try {
-			tableList = session.createQuery(" FROM ProcessFlowEntity r ").list();
+			tableList = session.createSQLQuery(" SELECT pf.process_flow_id AS processFlowId,pf.product_id AS productId,CONCAT(p.order_code,'_',p.colors,'_',p.product_name) as productName,pf.process_id AS processId, pr.process_name AS processName,pf.cycle_time as cycleTime,pf.operation_no as operationNo FROM process_flow pf,product p, process pr WHERE pf.product_id=p.product_id AND pr.process_id=pf.process_id")
+					.setResultTransformer(Transformers.aliasToBean(ProcessFlowEntity.class)).list();
 		//	System.out.println("roleList------"+roleList.size());
 			returnobj.setValid(true);
 			returnobj.setProcessFlowList(tableList);

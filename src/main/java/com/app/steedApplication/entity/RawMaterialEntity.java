@@ -88,6 +88,13 @@ public class RawMaterialEntity {
 	@Transient
 	public String supplierName;
 	
+	@Transient
+	public String materialType;
+	
+	@Transient
+	public String measurementName;
+	
+	
 }
 
 

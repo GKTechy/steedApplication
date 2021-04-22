@@ -5,6 +5,7 @@ import com.app.steedApplication.modules.masters.model.ProductVO;
 public interface ProductDao {
 
 	ProductVO getAllProducts();
+	ProductVO getProductsWithOrderCode();
 
 	ProductVO findProductbyId(int id);
 

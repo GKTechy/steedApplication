@@ -4,9 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.app.steedApplication.modules.masters.dao.BillOfMaterialDao;
+import com.app.steedApplication.modules.masters.dao.MaterialTypeDao;
 import com.app.steedApplication.modules.masters.dao.ProductDao;
 import com.app.steedApplication.modules.masters.dao.RawMaterialDao;
 import com.app.steedApplication.modules.masters.dao.SupplierDao;
+import com.app.steedApplication.modules.masters.dao.UOMDao;
 import com.app.steedApplication.modules.masters.model.ProductVO;
 import com.app.steedApplication.modules.masters.model.RawMaterialVO;
 import com.app.steedApplication.modules.masters.service.RawMaterialService;
@@ -20,12 +23,23 @@ public class RawMaterialServiceImpl implements RawMaterialService {
 	@Autowired
 	private SupplierDao supplierDao;
 	
+	@Autowired
+	private MaterialTypeDao materialTypeDao;
+	
+	@Autowired
+	private UOMDao uomDao;
+	
+
+	
 	@Override
 	public RawMaterialVO getAllRawMaterials() {
 		RawMaterialVO returnobj = new RawMaterialVO();
 		try {
 			returnobj= rawMaterialDao.getAllRawMaterials();
 			returnobj.setSupplierList(supplierDao.getAllSupplier().getSupplierList());
+			returnobj.setMaterialTypeList(materialTypeDao.getAllMaterialTypes().getMaterialTypeList());
+			returnobj.setUomList(uomDao.getAllUOMs().getUomList());
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -60,6 +74,8 @@ public class RawMaterialServiceImpl implements RawMaterialService {
 		try {
 			returnobj= rawMaterialDao.saveRawMaterial(obj) ;
 			returnobj.setRawMaterialList(rawMaterialDao.getAllRawMaterials().getRawMaterialList());
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

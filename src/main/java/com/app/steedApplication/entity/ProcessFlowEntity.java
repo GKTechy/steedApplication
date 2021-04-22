@@ -28,7 +28,7 @@ public class ProcessFlowEntity {
 	public int processId;
 	
 	@Column(name = "operation_no")
-	public int operationNo;
+	public String operationNo;
 	
 	@Column(name = "cycle_time")
 	public String cycleTime;
