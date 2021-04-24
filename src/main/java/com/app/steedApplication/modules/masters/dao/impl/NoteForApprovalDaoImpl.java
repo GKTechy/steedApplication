@@ -1,5 +1,6 @@
 package com.app.steedApplication.modules.masters.dao.impl;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -81,6 +82,7 @@ public class NoteForApprovalDaoImpl implements NoteForApprovalDao {
 					//robj.setApprovedBy(100);
 					//robj.setApprovedOn(new Date());
 					//robj.setPreparedBy("100");
+					
 					robj.setPreparedON(new Date());
 					robj.setNfaActive("Active");
 					session.save(robj);

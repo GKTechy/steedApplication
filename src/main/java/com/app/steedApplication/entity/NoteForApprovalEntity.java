@@ -8,7 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
 
@@ -27,6 +31,8 @@ public class NoteForApprovalEntity {
 	public String nfaDocumentNo;
 	
 	@Column(name = "nfa_document_date")
+	@Temporal(TemporalType.DATE)
+    @JsonFormat(pattern="yyyy-MM-dd")
 	public Date nfaDocumentDate;
 	
 	@Column(name = "nfa_title")
