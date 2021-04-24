@@ -59,7 +59,9 @@ public class DealerServiceImpl implements DealerService {
 		try {
 			returnobj= dealerDao.saveDealer(obj) ;
 			returnobj.setDealerList(dealerDao.getAllDealer().getDealerList());
+			returnobj.setSObj(dealerDao.getAllDealer().getSObj());
 		} catch (Exception e) {
+			
 			e.printStackTrace();
 		}
 		return returnobj;

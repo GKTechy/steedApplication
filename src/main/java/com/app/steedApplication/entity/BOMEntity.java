@@ -21,23 +21,14 @@ public class BOMEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int billOfMaterialId;
 	
-	@Column(name = "itemtype_id")
-	public int itemtypeId;
+	@Column(name = "quantity")
+	public double quantity;
 	
-	@Column(name = "bill_of_material_item_id")
-	public int itemId;
-	
-	@Column(name = "bill_of_material_item_quantity")
-	public int quantity;
-	
-	@Column(name = "bill_of_material_uom_id")
-	public int uomId;
+	@Column(name = "material_id")
+	public int materialId;
 	
 	@Column(name = "product_id")
 	public int productId;
-	
-	@Column(name = "is_active")
-	public String isActive;
 	
 	@Column(name = "created")
 	public Date created;

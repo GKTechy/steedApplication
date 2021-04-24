@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import com.app.steedApplication.entity.DealerEntity;
 import com.app.steedApplication.entity.MachineProcessMap;
+import com.app.steedApplication.entity.SequenceEntity;
 import com.app.steedApplication.modules.masters.dao.DealerDao;
 import com.app.steedApplication.modules.masters.model.DealerVO;
 import com.app.steedApplication.modules.masters.model.MachineVO;
@@ -31,17 +32,22 @@ public class DealerDaoImpl implements DealerDao {
 		Session session = this.sessionFactory.openSession();
 		DealerVO returnobj=new DealerVO();
 		List<DealerEntity> tableList= new ArrayList<DealerEntity>();
+		SequenceEntity sObj=new SequenceEntity();
+		
+		
 		try {
 			tableList = session.createQuery(" FROM DealerEntity r where r.isActive='Active'").list();
+			sObj = (SequenceEntity) session.createQuery(" FROM SequenceEntity r where r.value='DLR'").uniqueResult();
 		//	System.out.println("roleList------"+roleList.size());
 			returnobj.setValid(true);
 			returnobj.setDealerList(tableList);
+			returnobj.setSObj(sObj);
 		} catch (Exception e) {
 			e.printStackTrace();
 			returnobj.setValid(false);
 			returnobj.setResponseMsg(e.getMessage());
 		} finally {
-			if(session != null){
+			if(session != null){	
 				session.close();
 				session = null;
 			}			
@@ -75,9 +81,24 @@ public class DealerDaoImpl implements DealerDao {
 				if(mlist.size() == 0) {
 					
 					//System.out.println("active-->"+robj.getIsActive());
+					
+					
 					robj.setCreated(new Date());
 					robj.setUpdated(new Date());
 					session.save(robj);
+
+					SequenceEntity seqobj=new SequenceEntity();
+					seqobj = (SequenceEntity) session.createQuery(" FROM SequenceEntity AS u WHERE u.value = 'DLR' ").uniqueResult();
+					
+					int cNumber=Integer.parseInt(seqobj.getCurrentNext())+1;
+					String input = "00000"+cNumber ;//000105
+					String nextValue = input.substring(input.length() - 5);
+					
+					System.out.println("nextValue:"+nextValue);
+					seqobj.setCurrentNext(nextValue);
+					session.saveOrUpdate(seqobj);
+
+					
 					returnobj.setValid(true);
 				} else {
 					returnobj.setValid(false);

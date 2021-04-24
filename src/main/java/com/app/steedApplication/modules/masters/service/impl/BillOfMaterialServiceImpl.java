@@ -68,7 +68,7 @@ public class BillOfMaterialServiceImpl implements BillOfMaterialService {
 		BillOfMaterialVO returnobj = new BillOfMaterialVO();
 		try {
 			returnobj= billOfMaterialDao.saveBillOfMaterial(obj) ;
-			returnobj.setBOMList(billOfMaterialDao.getAllBillOfMaterial().getBOMList());
+			returnobj.setProductList(productDao.getAllProducts().getProductList());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

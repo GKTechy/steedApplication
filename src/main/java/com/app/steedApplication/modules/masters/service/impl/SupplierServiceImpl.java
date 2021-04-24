@@ -58,6 +58,7 @@ public class SupplierServiceImpl implements SupplierService {
 		try {
 			returnobj= supplierDao.saveSupplier(obj) ;
 			returnobj.setSupplierList(supplierDao.getAllSupplier().getSupplierList());
+			returnobj.setSObj(supplierDao.getAllSupplier().getSObj());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
