@@ -29,18 +29,12 @@ public class DealerOrderEntity {
 	
 	@Column(name = "dealer_id")
 	public String dealerId;
-	
+		
 	@Column(name = "reference")
 	public String reference;
 	
 	@Column(name = "product_id")
 	public String productId;
-	
-	@Column(name = "color_code")
-	public String colorCode;
-	
-	@Column(name = "frame_size")
-	public String frameSize;
 	
 	@Column(name = "qty")
 	public String qty;

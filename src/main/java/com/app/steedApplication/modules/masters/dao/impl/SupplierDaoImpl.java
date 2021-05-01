@@ -33,7 +33,7 @@ public class SupplierDaoImpl implements SupplierDao {
 		SequenceEntity sObj=new SequenceEntity();
 		try {
 			tableList = session.createQuery(" FROM SupplierEntity r where r.isActive='Active'").list();
-			sObj = (SequenceEntity) session.createQuery(" FROM SequenceEntity r where r.value='DLR'").uniqueResult();
+			sObj = (SequenceEntity) session.createQuery(" FROM SequenceEntity r where r.value='SLR'").uniqueResult();
 		//	System.out.println("roleList------"+roleList.size());
 			returnobj.setValid(true);
 			returnobj.setSupplierList(tableList);
