@@ -14,36 +14,38 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="dealer_order")
-public class DealerOrderEntity {
+@Table(name="dealer_order_products")
+public class DealerOrderProductsEntity {
+	
 	@Id
-	@Column(name = "dealer_order_id")
+	@Column(name = "seq_no")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public int seqNo;
+
+	@Column(name = "dealer_order_id")
 	public int dealerOrderId;
+
+	@Column(name = "product_id")
+	public String productId;
 	
-	@Column(name = "order_no")
-	public String orderNo;
+	@Column(name = "order_code")
+	public String orderCode;
 	
-	@Column(name = "order_for")
-	public String orderFor;
+	@Column(name = "qty")
+	public String qty;
 	
-	@Column(name = "order_date")
-	public Date orderDate;
+	@Column(name = "price")
+	public String price;
 	
-	@Column(name = "dealer_id")
-	public int dealerId;
-		
-	@Column(name = "reference")
-	public String reference;
+	@Column(name = "gst")
+	public String gst;
 	
-	@Column(name = "subtotal")
-	public String subtotal;
+	@Column(name = "gst_amount")
+	public String gstAmt;
 	
-	@Column(name = "tax_total")
-	public String taxTotal;
+	@Column(name = "amount")
+	public String amount;
 	
-	@Column(name = "total")
-	public String total;
 	
 	@Column(name = "created")
 	public Date created;
@@ -70,6 +72,9 @@ public class DealerOrderEntity {
 	public String productName;
 	
 	@Transient
-	public String dealerContactPerson;
+	public String size;
+	
+	@Transient
+	public String colors;
 	
 }

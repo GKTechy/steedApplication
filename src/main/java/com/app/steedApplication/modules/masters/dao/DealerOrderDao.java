@@ -6,4 +6,8 @@ public interface DealerOrderDao {
 
 	DealerOrderVO getAllDealerOrder();
 
+	DealerOrderVO saveDealerOrder(DealerOrderVO obj);
+
+	DealerOrderVO findDealerOrderbyId(int id);
+
 }

@@ -42,8 +42,15 @@ public class DealerOrderServiceImpl implements DealerOrderService {
 
 	@Override
 	public DealerOrderVO findDealerOrderbyId(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		DealerOrderVO returnobj = new DealerOrderVO();
+		try {
+			returnobj= dealerOrderDao.findDealerOrderbyId(id);
+			returnobj.setDealerList(dealerDao.getAllDealer().getDealerList());
+			returnobj.setProductList(productDao.getAllProducts().getProductList());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return returnobj;
 	}
 
 	@Override
@@ -54,8 +61,13 @@ public class DealerOrderServiceImpl implements DealerOrderService {
 
 	@Override
 	public DealerOrderVO saveDealerOrder(DealerOrderVO obj) {
-		// TODO Auto-generated method stub
-		return null;
+		DealerOrderVO returnobj = new DealerOrderVO();
+		try {
+			returnobj= dealerOrderDao.saveDealerOrder(obj);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return returnobj;
 	}
 
 }

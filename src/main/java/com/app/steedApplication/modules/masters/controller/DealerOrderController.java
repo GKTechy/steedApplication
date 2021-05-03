@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.steedApplication.modules.masters.model.DealerOrderVO;
@@ -34,8 +35,8 @@ public class DealerOrderController {
 	
 	
 
-	@GetMapping("/{id}")
-	public ResponseEntity<DealerOrderVO> findDealerOrderbyId(@PathVariable("id") int id) {
+	@GetMapping("/getProductDetails")
+	public ResponseEntity<DealerOrderVO> findDealerOrderbyId(@RequestParam(name = "id")  int id) {
 		DealerOrderVO robj=dealerOrderService.findDealerOrderbyId(id);
 		return new ResponseEntity<DealerOrderVO>(robj,new HttpHeaders(),HttpStatus.OK);
 	}
