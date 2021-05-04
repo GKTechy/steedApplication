@@ -70,6 +70,8 @@ public class DealerOrderDaoImpl implements DealerOrderDao {
 		try {
 			
 			if(obj.getDealerOrderObj().getDealerOrderId() == 0) {
+				
+				//System.out.println("if ---obj-->"+obj.toString());
 				DealerOrderEntity headerobj=obj.getDealerOrderObj();
 				
 				
@@ -90,8 +92,32 @@ public class DealerOrderDaoImpl implements DealerOrderDao {
 					session.save(lineobj);
 				}
 				
+			}else {
+				
+				//System.out.println("else ---obj-->"+obj.toString());
+				
+				DealerOrderEntity headerobj=obj.getDealerOrderObj();
+				
+				headerobj.setCreated(new Date());
+				headerobj.setUpdated(new Date());
+				headerobj.setCreatedBy(obj.getCreatedBy());
+				headerobj.setUpdatedBy(obj.getUpdatedBy());
+				session.saveOrUpdate(headerobj);
+				
+				session.createSQLQuery("delete from dealer_order_products where dealer_order_id="+headerobj.getDealerOrderId()).executeUpdate();
+				
+				for(DealerOrderProductsEntity lineobj: obj.getDealerOrderProductsList()) {
+					
+					lineobj.setDealerOrderId(headerobj.getDealerOrderId());
+					lineobj.setCreated(new Date());
+					lineobj.setUpdated(new Date());
+					lineobj.setCreatedBy(obj.getCreatedBy());
+					lineobj.setUpdatedBy(obj.getUpdatedBy());
+					session.save(lineobj);
+				}
+				
 			}
-			System.out.println("---obj-->"+obj.toString());
+			
 			
 			
 			tx.commit();
