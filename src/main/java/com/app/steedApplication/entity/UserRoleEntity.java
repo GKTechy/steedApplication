@@ -47,5 +47,9 @@ public class UserRoleEntity {
 	
 	@Transient
 	public String changeFlag;
+	
+	@Transient
+	public Boolean isChecked=false;
+	
 		
 }

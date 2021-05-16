@@ -2,6 +2,7 @@ package com.app.steedApplication.modules.masters.model;
 
 import java.util.List;
 
+import com.app.steedApplication.entity.MainMenuEntity;
 import com.app.steedApplication.entity.UserRoleEntity;
 
 import lombok.Data;
@@ -16,5 +17,6 @@ public class RoleVO {
 	public UserRoleEntity roleObj;
 	
 	
+	public List<MainMenuEntity> mainMenuList;
 	
 }

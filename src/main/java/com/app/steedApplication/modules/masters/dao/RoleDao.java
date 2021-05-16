@@ -12,4 +12,6 @@ public interface RoleDao {
 
 	RoleVO saveRole(RoleVO obj);
 
+	RoleVO allRolesModules();
+
 }

@@ -26,14 +26,14 @@ public class UserEntity implements Serializable, Cloneable {
 	@Id
 	@Column(name = "user_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Long userId;
+	public int userId;
 	
 	@Column(name = "user_name")
 	public String userName;
 	
 	@Column(name = "password")
 	@ColumnTransformer(
-//			read = "cast(AES_DECRYPT(password, 'o2web_ng') as char(255))",
+//			read = "cast(AES_DECRYPT(password, 'steed_app') as char(255))",
 			write = "AES_ENCRYPT(?, 'steed_app')"
 			)
 	public String password;
@@ -62,4 +62,6 @@ public class UserEntity implements Serializable, Cloneable {
 	@Column(name = "updated_by")
 	public String updatedBy;
 	
+	@Transient
+	public String userRoles;
 }

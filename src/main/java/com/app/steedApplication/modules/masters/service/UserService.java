@@ -20,16 +20,11 @@ public interface UserService {
 	
 	public UserVO forgotPassword(String userName, String currentPassword, String newPassword) throws Exception;
 	
-	public UserVO getMMMenuList(String userType) throws Exception;
-	
-	public UserVO getUMuserList(String companyCode) throws Exception;
-	
 	public UserVO saveUserList(UserVO userVO) throws Exception;
 	
 	public UserVO deleteUser(int id, String employeeId, String loginUser, String companyCode) throws Exception;
 	
 	public UserVO resetPassword(UserVO userVO) throws Exception;
 	
-	public UserVO getTMPasswordValidation(int id, String companyCode) throws Exception;
 	
 }

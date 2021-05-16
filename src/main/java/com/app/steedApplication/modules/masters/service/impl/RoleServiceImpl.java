@@ -67,6 +67,20 @@ public class RoleServiceImpl implements RoleService {
 	}
 
 
+	@Override
+	public RoleVO allRolesModules() {
+		RoleVO returnobj = new RoleVO();
+		try {
+			returnobj= roleDao.allRolesModules();
+			
+			returnobj.setRoleList(roleDao.getAllRoles().getRoleList());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return returnobj;
+	}
+
+
 	
 
 }

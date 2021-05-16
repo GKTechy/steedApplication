@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.app.steedApplication.entity.UserEntity;
+import com.app.steedApplication.entity.UserRoleEntity;
 
 import lombok.Data;
 
@@ -48,29 +49,8 @@ public class UserVO {
 	public String resetPassword;
 	public Boolean oldPasswordFlag = false;
 	
-	public Boolean existUser = false;
-	public Boolean existEmployee = false;
-	public Boolean baApprovalImageFlag = false;
-	public Boolean existLoginUserId = false;
-	public Boolean existPhoneNumber = false;
 	
-	List<Map<String,Object>> salesmanVisitSummaryList = null;
-	List<Map<String,Object>> menuList = null;
-	
-	List<Map<String,Object>> umUsersList = null;
-	List<Map<String,Object>> umUserTypeList = null;
-	List<Map<String,Object>> umUserLanguageList = null;
-	List<Map<String,Object>> umDistributorList = null;
-	List<Map<String,Object>> umReportList = null;
-	List<Map<String,Object>> umMobileMenuList = null;
-	List<Map<String,Object>> umLandingList = null;
-	List<Map<String,Object>> umRetailerTransationList = null;
-	List<Map<String,Object>> umRetailerList = null;
-	List<Map<String,Object>> umProductList = null;
-	List<Map<String,Object>> umBAList = null;
-	
-	private String businessDtm = null;
-	
+	public List<UserRoleEntity> roleList;
 	
 	
 	

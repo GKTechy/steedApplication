@@ -12,6 +12,8 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.app.steedApplication.entity.MainMenuEntity;
+import com.app.steedApplication.entity.SubMenuEntity;
 import com.app.steedApplication.entity.UserEntity;
 import com.app.steedApplication.entity.UserRoleEntity;
 import com.app.steedApplication.modules.masters.dao.RoleDao;
@@ -152,6 +154,36 @@ public class RoleDaoImpl implements RoleDao {
 				session = null;
 			}	
 	
+		}		
+		return returnobj;
+	}
+
+	@Override
+	public RoleVO allRolesModules() {
+		Session session = this.sessionFactory.openSession();
+		RoleVO returnobj=new RoleVO();
+		List<MainMenuEntity> mainMenuList= new ArrayList<MainMenuEntity>();
+		try {
+
+			mainMenuList = session.createQuery(" FROM MainMenuEntity ").list();
+			
+			for(MainMenuEntity mobj: mainMenuList) {
+				List<SubMenuEntity> sMenuList = session.createQuery(" FROM SubMenuEntity s where s.mainMenuId="+mobj.getMainMenuId()).list();
+				mobj.setSubMenuList(sMenuList);
+			}
+			
+			returnobj.setValid(true);
+			returnobj.setMainMenuList(mainMenuList);
+		} catch (Exception e) {
+			e.printStackTrace();
+			returnobj.setValid(false);
+			returnobj.setResponseMsg(e.getMessage());
+		} finally {
+			if(session != null){
+				session.close();
+				session = null;
+			}	
+			mainMenuList=null;
 		}		
 		return returnobj;
 	}

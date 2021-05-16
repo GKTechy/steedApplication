@@ -31,7 +31,8 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@GetMapping
+	
+	@GetMapping("/allUsers")
 	public ResponseEntity<UserVO> getAllUsers() {
 		UserVO robj=userService.getAllUsers();
 		return new ResponseEntity<UserVO>(robj,new HttpHeaders(),HttpStatus.OK);
@@ -89,28 +90,6 @@ public class UserController {
 		return new ResponseEntity<UserVO>(robj,new HttpHeaders(),HttpStatus.OK);
 	}
 	
-	@GetMapping("/getMMMenuList")
-	public ResponseEntity<UserVO> getMMMenuList(@RequestParam(name = "userType") String userType) throws Exception {
-		UserVO robj = new UserVO();
-		try {
-			 robj = userService.getMMMenuList(userType);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return new ResponseEntity<UserVO>(robj,new HttpHeaders(),HttpStatus.OK);
-	}
-	
-	@GetMapping("/getUMuserList")
-	public ResponseEntity<UserVO> getUMuserList(@RequestParam(name = "companyCode") String companyCode) throws Exception {
-		UserVO robj = new UserVO();
-		try {
-			 robj = userService.getUMuserList(companyCode);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return new ResponseEntity<UserVO>(robj,new HttpHeaders(),HttpStatus.OK);
-	}
-	
 	@PostMapping("/saveUserList")
 	public ResponseEntity<UserVO> saveUserList(@RequestBody UserVO userVO) {
 		UserVO robj = new UserVO();
@@ -144,14 +123,5 @@ public class UserController {
 		return new ResponseEntity<UserVO>(robj,new HttpHeaders(),HttpStatus.OK);
 	}
 	
-	@GetMapping("/getTMPasswordValidation")
-	public ResponseEntity<UserVO> getTMPasswordValidation(@RequestParam(name = "id") int id,@RequestParam(name = "companyCode") String companyCode) throws Exception {
-		UserVO robj = new UserVO();
-		try {
-			 robj = userService.getTMPasswordValidation(id,companyCode);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return new ResponseEntity<UserVO>(robj,new HttpHeaders(),HttpStatus.OK);
-	}
+	
 }

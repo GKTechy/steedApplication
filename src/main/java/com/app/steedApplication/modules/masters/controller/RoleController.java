@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.steedApplication.modules.masters.model.RoleVO;
+import com.app.steedApplication.modules.masters.model.UserVO;
 import com.app.steedApplication.modules.masters.service.RoleService;
 
 /**
@@ -60,4 +61,11 @@ public class RoleController {
 		return new ResponseEntity<RoleVO>(robj,new HttpHeaders(),HttpStatus.OK);
 	}
 	
+	
+	
+	@GetMapping("/allRolesModules")
+	public ResponseEntity<RoleVO> allRolesModules() {
+		RoleVO robj=roleService.allRolesModules();
+		return new ResponseEntity<RoleVO>(robj,new HttpHeaders(),HttpStatus.OK);
+	}
 }
