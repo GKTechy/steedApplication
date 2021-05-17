@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.steedApplication.modules.masters.model.RoleVO;
@@ -66,6 +67,23 @@ public class RoleController {
 	@GetMapping("/allRolesModules")
 	public ResponseEntity<RoleVO> allRolesModules() {
 		RoleVO robj=roleService.allRolesModules();
+		return new ResponseEntity<RoleVO>(robj,new HttpHeaders(),HttpStatus.OK);
+	}
+	
+	@GetMapping("/roleModules")
+	public ResponseEntity<RoleVO> roleModules(@RequestParam(name = "roleId") int roleId) {
+		RoleVO robj=roleService.roleModules(roleId);
+		return new ResponseEntity<RoleVO>(robj,new HttpHeaders(),HttpStatus.OK);
+	}
+	
+	@PostMapping("/saveRoleMenu")
+	public ResponseEntity<RoleVO> saveRoleMenu(@RequestBody RoleVO obj) {
+		RoleVO robj = new RoleVO();
+		try {
+			robj=roleService.saveRoleMenu(obj);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
 		return new ResponseEntity<RoleVO>(robj,new HttpHeaders(),HttpStatus.OK);
 	}
 }

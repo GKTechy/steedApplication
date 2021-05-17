@@ -3,6 +3,7 @@ package com.app.steedApplication.modules.masters.model;
 import java.util.List;
 
 import com.app.steedApplication.entity.MainMenuEntity;
+import com.app.steedApplication.entity.MenuEntity;
 import com.app.steedApplication.entity.UserRoleEntity;
 
 import lombok.Data;
@@ -18,5 +19,9 @@ public class RoleVO {
 	
 	
 	public List<MainMenuEntity> mainMenuList;
+	public List<MenuEntity> menuList;
+	
+	
+	public int roleId;
 	
 }

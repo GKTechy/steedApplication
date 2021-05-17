@@ -14,4 +14,8 @@ public interface RoleDao {
 
 	RoleVO allRolesModules();
 
+	RoleVO roleModules(int roleId);
+
+	RoleVO saveRoleMenu(RoleVO obj);
+
 }

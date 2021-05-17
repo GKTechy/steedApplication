@@ -14,4 +14,8 @@ public interface RoleService {
 
 	RoleVO allRolesModules();
 
+	RoleVO roleModules(int roleId);
+
+	RoleVO saveRoleMenu(RoleVO obj);
+
 }
