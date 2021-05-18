@@ -2,6 +2,7 @@ package com.app.steedApplication.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -45,7 +46,7 @@ public class UserEntity implements Serializable, Cloneable {
 	public String pwdToBeChanged;
 	
 	@Column(name = "expirydate")
-	public Date ExpiryDate;
+	public Date expiryDate;
 	
 	@Column(name = "status")
 	public String status;
@@ -64,4 +65,7 @@ public class UserEntity implements Serializable, Cloneable {
 	
 	@Transient
 	public String userRoles;
+	
+	@Transient
+	public List<MainMenuEntity> menuList;
 }

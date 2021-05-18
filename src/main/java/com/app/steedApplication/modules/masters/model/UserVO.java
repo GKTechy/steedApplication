@@ -3,6 +3,8 @@ package com.app.steedApplication.modules.masters.model;
 import java.util.List;
 import java.util.Map;
 
+import com.app.steedApplication.entity.MainMenuEntity;
+import com.app.steedApplication.entity.MenuEntity;
 import com.app.steedApplication.entity.UserEntity;
 import com.app.steedApplication.entity.UserRoleEntity;
 
@@ -51,7 +53,7 @@ public class UserVO {
 	
 	
 	public List<UserRoleEntity> roleList;
-	
+	public List<MainMenuEntity> menuList;
 	
 	
 }

@@ -25,6 +25,9 @@ public class MainMenuEntity {
 	@Column(name = "main_menu_name")
 	public String mainMenuName;
 	
+	@Column(name = "icon")
+	public String icon;
+	
 	@Transient
 	public List<SubMenuEntity> subMenuList;
 	

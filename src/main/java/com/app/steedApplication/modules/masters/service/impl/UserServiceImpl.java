@@ -69,10 +69,10 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public UserVO userLogin(String userName, String userPassword) throws Exception {
+	public UserVO userLogin(UserVO userVO) throws Exception {
 		UserVO returnobj = new UserVO();
 		try {
-			returnobj = userDao.userLogin(userName, userPassword);
+			returnobj = userDao.userLogin(userVO);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

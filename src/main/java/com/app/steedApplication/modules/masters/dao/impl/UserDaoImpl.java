@@ -22,6 +22,9 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Repository;
 
+import com.app.steedApplication.entity.MainMenuEntity;
+import com.app.steedApplication.entity.MenuEntity;
+import com.app.steedApplication.entity.SubMenuEntity;
 import com.app.steedApplication.entity.UserEntity;
 import com.app.steedApplication.entity.UserRoleEntity;
 import com.app.steedApplication.entity.UserRoleMappingEntity;
@@ -175,40 +178,33 @@ public class UserDaoImpl implements UserDao {
 
 	@SuppressWarnings({ "unchecked", "rawtypes", "deprecation" })
 	@Override
-	public UserVO userLogin(String userName, String userPassword) throws Exception {
+	public UserVO userLogin(UserVO userVO) throws Exception {
 		Session session = this.sessionFactory.openSession();
 		UserVO uservoObj = new UserVO();
 		List<UserEntity> userList = new ArrayList<UserEntity>();
-		List<String[]> menuDetail = new ArrayList<String[]>();
-		Query query = null;
-	
-		String retailerCode = "";
+		List<MainMenuEntity> menuList =null;
+		
 		try {
-//			userList = session.createQuery(" FROM UserEntity r where r.status='Y' and r.userName='"+userName+"' and r.password='"+userPassword.trim()+"'").list();
-			userList = session.createQuery(" FROM UserEntity AS u WHERE u.loginUserId = '"+userName+"' AND u.password = AES_ENCRYPT('"+userPassword.trim()+"','o2web_ng') ").list();
-		//	System.out.println("userList------"+userList.size());
+			userList = session.createSQLQuery(" SELECT u.user_id AS userId,u.user_name AS userName,u.pwdtobechanged AS pwdToBeChanged,u.expirydate AS expiryDate FROM user u WHERE u.user_name = '"+userVO.getUserName()+"' AND u.password = AES_ENCRYPT('"+userVO.getPassword().trim()+"','steed_app') ")
+					.setResultTransformer(Transformers.aliasToBean(UserEntity.class)).list();
+	//		System.out.println("userList------"+userList.size());
 			if(userList.size() > 0) {
 				uservoObj.setValid(true);
 				uservoObj.setResponseMsg("Successfully Logged");
 				
-				//Date datetmp=(Date) session.createSQLQuery("SELECT dp.business_dtm FROM distributor_pref dp WHERE dp.`status`='Y' AND dp.distributor_code='"+userList.get(0).getDistributorCode()+"'").uniqueResult();
-				//SimpleDateFormat sdf = new SimpleDateFormat("E, MMM dd yyyy");
-				//String businessDtm = sdf.format(datetmp.getTime());
-
-				//uservoObj.setBusinessDtm(businessDtm);
-//				menuDetail = (List<String[]>) session.createSQLQuery("select m.display_name, case when ura.write_access = 'Y' then 'true' else 'false' end from menus as m, user_role_access as ura, user_roles as ur where ur.role_name =:userType and ura.role_id = ur.role_id and m.menu_id = ura.screen_id")
-	//					.setParameter("userType", userList.get(0).getUserType()).list();
-		//		 for (Object[] mm : menuDetail) {
-					
-			//	 }
-				// uservoObj.setUsersList(userList);
-				 
-				// BigInteger oldPassword = (BigInteger) session.createSQLQuery(UserConstant.CHECK_PASSWORD_VALIDATION).setParameter("id", userList.get(0).getUserId()).setParameter("companyCode", userList.get(0).getCompanyCode()).setParameter("date", java.time.LocalDate.now()).uniqueResult();
-				//	if(oldPassword.intValue() > 0) {					
-				//		uservoObj.setOldPasswordFlag(true);
-				//	}
-
-						
+			
+				
+				menuList = session.createSQLQuery("SELECT distinct mm.main_menu_id mainMenuId ,mm.main_menu_name AS mainMenuName,mm.icon AS icon  FROM main_menu mm, menu m,role_menu_mapping AS rm\r\n" + 
+						" WHERE  m.main_menu_id=mm.main_menu_id AND rm.menu_id=m.menu_id AND rm.roleId in (SELECT role_id FROM user_roles_mapping WHERE user_id="+userList.get(0).getUserId()+")")
+						.setResultTransformer(Transformers.aliasToBean(MainMenuEntity.class)).list();
+				
+				for(MainMenuEntity mboj: menuList) {
+					List<SubMenuEntity> sList = session.createQuery("FROM SubMenuEntity WHERE mainMenuId="+mboj.getMainMenuId()+" AND component!='' order by subMenuId").list();
+					mboj.setSubMenuList(sList);
+				}
+				//uservoObj.setMenuList(menuList);
+				userList.get(0).setMenuList(menuList);
+				uservoObj.setUsersList(userList);
 			} else {
 				uservoObj.setValid(false);
 				uservoObj.setResponseMsg("Invalid Login Credentials");
@@ -224,9 +220,6 @@ public class UserDaoImpl implements UserDao {
 				session = null;
 			}	
 			userList = null;
-			menuDetail = null;
-			query = null;
-		
 		}		
 		return uservoObj;
 	}

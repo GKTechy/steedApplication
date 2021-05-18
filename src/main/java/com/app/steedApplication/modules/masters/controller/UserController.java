@@ -57,11 +57,11 @@ public class UserController {
 		return new ResponseEntity<UserVO>(robj,new HttpHeaders(),HttpStatus.OK);
 	}
 	
-	@GetMapping("/userLogin")
-	public ResponseEntity<UserVO> userLogin(@RequestParam(name = "userName") String userName,@RequestParam(name = "userPassword") String userPassword) throws Exception {
+	@PostMapping("/userLogin")
+	public ResponseEntity<UserVO> userLogin(@RequestBody UserVO userVO) throws Exception {
 		UserVO robj = new UserVO();
 		try {
-			 robj = userService.userLogin(userName,userPassword);
+			 robj = userService.userLogin(userVO);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

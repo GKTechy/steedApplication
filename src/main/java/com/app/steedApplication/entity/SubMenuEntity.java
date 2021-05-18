@@ -25,4 +25,10 @@ public class SubMenuEntity {
 	@Column(name = "main_menu_id")
 	public int mainMenuId;
 	
+	@Column(name = "icon")
+	public String icon;
+	
+	@Column(name = "component")
+	public String component;
+		
 }

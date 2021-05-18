@@ -13,7 +13,7 @@ public interface UserDao {
 
 	UserVO CreateOrUpdateUser(UserEntity user);
 
-	public UserVO userLogin(String userName, String userPassword) throws Exception;
+	public UserVO userLogin(UserVO userVO) throws Exception;
 
 	public UserVO changePassword(String userName, String currentPassword, String newPassword) throws Exception;
 	
